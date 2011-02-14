@@ -1,6 +1,6 @@
 ### Welcome to the newlisp-projects wiki!
 
-This is the place where the newLISP code from unbalanced-parentheses.nfshost.com ended up. In here you can find:
+This is the place where some of the newLISP code from unbalanced-parentheses.nfshost.com ended up. In here you can find:
 
 -  analyse-router-traffic.lsp : get traffic data from a DD-WRT router
 -  dragonfly-plugins: 
