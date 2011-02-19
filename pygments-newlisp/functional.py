@@ -791,10 +791,12 @@ class NewLispLexer(RegexLexer):
 
             # strings, symbols and characters
             (r'"(\\\\|\\"|[^"])*"', String),
-            (r'{(\\\\|\\}|[^}])*}', String),
+            
+            # braces
+            (r"{", String, "bracestring"),
             
             # [text] ... [/text] delimited strings
-            (r'\[text\]*', String.Other, "stringtag"),
+            (r'\[text\]*', String, "tagstring"),
      
             # 'special' operators...
             (r"('|:)", Operator),
@@ -815,8 +817,15 @@ class NewLispLexer(RegexLexer):
             (r'(\(|\))', Punctuation),
         ],
         
-        # one way to do [text]...[/text] delimited strings...
-        'stringtag': [
-            (r'(?s)(.*?)(\[/text\])', String.Other, '#pop'),
-        ],       
+        # braced strings...
+        'bracestring': [
+             ("{", String, "#push"),
+             ("}", String, "#pop"),
+             ("[^{}]+", String),
+        ],
+        
+        # tagged [text]...[/text] delimited strings...
+        'tagstring': [
+            (r'(?s)(.*?)(\[/text\])', String, '#pop'),
+        ],
     }
