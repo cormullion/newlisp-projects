@@ -1,8 +1,10 @@
 ### Welcome to the newlisp-projects wiki!
 
-newLISP is not Lisp! 
+newLISP is not Lisp! :)
 
-This is the place where some of the newLISP scripts from unbalanced-parentheses.nfshost.com ended up. In here you can find:
+This is the place where some of the newLISP scripts from unbalanced-parentheses.nfshost.com ended up. The relevant blog posts can now be found at [archive 'newlisper](newlisper.wordpress.com), but you'll have to search for them. 
+
+In here you can find:
 
 -  analyse-router-traffic.lsp : get traffic data from a DD-WRT router
 -  dragonfly-plugins: 
@@ -25,6 +27,7 @@ This is the place where some of the newLISP scripts from unbalanced-parentheses.
       - date-time-parser-test.lsp : test the parsetime module
       - parsetime.lsp : convert date/time strings to dates
 -  point-inside-poly.lsp : SuperCollider newLISP-GS plaything
+-  pygments-newlisp : lexer for the Pygments syntax colouring
 -  rainbow-code.lsp : test out colour schemes for newLISP code using newLISP-GS
 -  README
 -  reversi.lsp : simple port of Reversi
