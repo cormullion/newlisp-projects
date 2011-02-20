@@ -2,7 +2,7 @@
 
 newLISP is not Lisp! :)
 
-This is the place where some of the newLISP scripts from unbalanced-parentheses.nfshost.com ended up. The relevant blog posts can now be found at [archive 'newlisper](newlisper.wordpress.com), but you'll have to search for them. 
+This is the place where some of the newLISP scripts from unbalanced-parentheses.nfshost.com ended up. The relevant blog posts can now be found at [archive 'newlisper](http://newlisper.wordpress.com), but you'll have to search for them. 
 
 In here you can find:
 
