@@ -8,6 +8,7 @@
 ;; to install or use something better, such as sqlite.
 ;; Data is stored in a list of lists. The first row is a list of column names, stored as symbols.
 ;; List elements can be numbers, strings, or lists.
+;; </p>
 
 (context 'nldb)
 
