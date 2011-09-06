@@ -1,11 +1,11 @@
 #!/usr/bin/env newlisp
 ;; @module analyse-router-traffic
 ;; @author cormullion@mac.com
-;; @version 0.1 2011-02-14 12:18:06
+;; @version 0.2 2011-09-06 16:41:52
 ;;
 ;; This script lets you access a DD-WRT software-based
-;; router such as a Linksys using Telnet and get the traffic data from
-;; NVRAM, suitable for graphing, analysis, etc.
+;; router such as a Linksys and get the traffic data from
+;; NVRAM.
 ;; I consider this a hack. :)
 
 (define (get-traffic-data site (user-name "admin") (password "password"))
@@ -51,30 +51,28 @@
        (inc day-number))
     month-table))
 
-(define (totalize the-data (day (date (date-value) 0 {%Y %m %d})) (number-of-days 30))
-  ; get the last n days of data
-  (println "Usage for the last " number-of-days " days, as at " day)
-  (set 'start-ref (ref day the-data))
-  (set 'data-slice (slice the-data (first start-ref) number-of-days))
+(define (totalize the-data (number-of-days 30) (start-at 0))
+  ; add the last number-of-days days of data  
+  ; most recent first
+  (sort the-data >)
+  (set 'data-slice (slice the-data start-at number-of-days))
   ; (("2011 02 10" (456 1356)) ("2011 02 09" (852 1951)) ("2011 02 08" (703 2361)) ("2011 02 07" 
   ;  (1251 2223))  ("2011 02 06" (776 776)) 
-  (list 
-    (apply + (map (fn (f)  (first (last f))) data-slice))
-    (apply + (map (fn (f)  (last  (last f))) data-slice))))  
+        (list 
+           (apply + (map (fn (f)  (first (last f))) data-slice))
+           (apply + (map (fn (f)  (last  (last f))) data-slice))))
 
 ; get lines of data from router
 (set 'raw-data (get-traffic-data "DD-WRT" "root" "13142"))
-
-; should check before continuing - have we any data? 
-
 (set 'data-table '())
 (map (fn (a) (extend data-table (add-data a))) raw-data)
 
-; sort so that most recent entries are first
+; there should be at least 30 days' worth of data for this
+(set 'number-of-days 30)
 
-(println (sort data-table >))
-
-; I want to know what the most recent 30 days worth of usage is, starting from today
-(println (totalize data-table (date (date-value) 0 {%Y %m %d}) 30))
+; i want the total for the previous 30 days, up to i days ago
+(for (i 0 30)
+    (print "" i " days ago:\t\t")
+    (println (format {%d %d} (totalize data-table number-of-days i))))
 
 (exit)
