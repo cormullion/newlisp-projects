@@ -18,7 +18,7 @@ In here you can find:
 -  markdown.lsp : implementation of John Gruber's Markdown
 -  mycroft.lsp  : profile newLISP scripts
 -  mystic-rose-canvas.lsp : draw mystic roses in HTML
--  nestor.lsp : newLISP source code analyser
+-  newlisp-parser : parses newLISP files, replaces nestor.lsp
 -  nldb:
       - elements.nldb : test database for simple pure newLISP database
       - nldb.lsp : I thought I'd done this one already
@@ -28,10 +28,8 @@ In here you can find:
       - parsetime.lsp : convert date/time strings to dates
 -  point-inside-poly.lsp : SuperCollider newLISP-GS plaything
 -  pygments-newlisp : lexer for the Pygments syntax colouring
--  rainbow-code.lsp : test out colour schemes for newLISP code using newLISP-GS
 -  README
 -  reversi.lsp : simple port of Reversi
 -  sparkline.lsp : small graphics using newLISP-GS
 -  tictactoe-gui.lsp : 0s and Xs
 -  timeutilities.lsp : using FOOP to play with dates and times
-
