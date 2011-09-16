@@ -3,6 +3,7 @@
 ;; @module Nestor
 ;; @author cormullion
 ;; @description experimental newLISP source code scanner and syntax colourizer
+;; now obsolete 2011-09-16 18:08:26
 ;; @version 0.3 beta 2010-09-29 18:09:49 lutz broke my code again - 'read'
 ;; @version 0.2 beta 2009-11-18 17:10:05
 ;; @version 0.1 beta 2008-11-19 17:38:11

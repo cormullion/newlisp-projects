@@ -42,8 +42,8 @@
 (test {unicode } {{\unnnn} (utf8len "我能吞下玻璃而不伤身体。")} 'display)
 
 ; biggish file
-;(test {markdown } (read-file (string (env {HOME}) {/projects/programming/newlisp-projects/markdown.lsp})))
-;(test {the tokenizer file} (read-file (string (env {HOME}) {/projects/programming/newlisp-projects/newlisp-parser.lsp})))
+(test {markdown } (read-file (string (env {HOME}) {/projects/programming/newlisp-projects/markdown.lsp})))
+(test {the tokenizer file} (read-file (string (env {HOME}) {/projects/programming/newlisp-projects/newlisp-parser.lsp})))
 ;(test {qa} (read-file (string (env {HOME}) {/projects/programming/newlisp/newlisp-10.3.2/qa-specific-tests/qa-bench})))
 
 (println "\n" {all tests completed})

@@ -23,6 +23,7 @@
 (context 'Nlex)
 
 ; class variables
+
 (define *cursor*)
 (define *source-length*)
 (define *source-list*)

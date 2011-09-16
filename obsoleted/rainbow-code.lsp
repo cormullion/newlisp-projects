@@ -3,6 +3,7 @@
 ;; @module rainbow-code
 ;; @description test out pretty colour schemes for newLISP code and export them
 ;; @version 0.1
+;; now obsoleted 2011-09-16 18:07:55
 ;; @author cormullion
 ;;
 ;; <h2>About</h2>
