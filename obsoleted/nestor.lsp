@@ -413,6 +413,9 @@ span.open-paren8:hover { color : inherit; background-color : #FFCDFF; }
 
 (define (nlx-to-html-helper l)
    (dolist (i l)
+   
+   
+   (println {i is } i)
       (if (atom? (first i))
             (begin 
               (set 'first-elt (first i) 'last-elt (last i))

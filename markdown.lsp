@@ -18,6 +18,11 @@
 ;;   parens in url : ![this is a stupid URL](http://example.com/(parens).jpg) see (Images.text)
 ;;  Add: email address scrambling
 ;;
+;; version 2011-09-16 16:31:29
+;; Changed to different hash routine. Profiling shows that hashing takes 40% of the execution time.
+;; Unfortunately this new version is only very slightly faster.
+;; Command-line arguments hack in previous version doesn't work.
+;;
 ;; version 2011-08-18 15:04:40
 ;; various fixes, and added hack for running this from the command-line:
 ;;     echo "hi there"     | newlisp markdown.lsp 
@@ -58,20 +63,41 @@
 ;; removed reliance on dostring for compatibility with 9.1
 ;; author: cormullion
 
-; (load "nestor.lsp")
+(context 'Hash)
+(define HashTable:HashTable)
+(set 'inited nil 'hash-id {} 'counter 0)
+(define (init-hash txt)
+    ; finds a hash identifier that doesn't occur anywhere in the text
+    (set 'inited true)
+    (set 'identifier {})
+    (set 'counter 0)
+    (set 'hash-prefix "HASH")
+    (set 'hash-id (string hash-prefix counter))
+    (do-while (find hash-id txt)
+           (inc counter)
+           (set 'hash-id (string hash-prefix counter)))
+    (Hash:build-escape-table))
+
+(define (hash s)
+   (HashTable s (string hash-id (inc counter))))
+
+(define (build-escape-table)
+   (set '*escape-chars* [text]\`*_{}[]()>#+-.![/text])   
+   (dolist (c (explode *escape-chars*))
+        (HashTable c (hash c))))
 
 (context 'markdown)
 
 (define (markdown:markdown txt)
   (initialize)
+  (Hash:init-hash txt)
   (unescape-special-chars 
     (block-transforms 
-        (strip-link-definitions 
-            (protect 
-                (cleanup txt))))))
+      (strip-link-definitions 
+         (protect 
+            (cleanup txt))))))
 
 (define (initialize)
-  (set '*escape-chars* [text]\`*_{}[]()>#+-.![/text])     
   (set '*escape-pairs*   '(
        ({\\\\} {\})
        ({\\`}  {`})
@@ -90,7 +116,6 @@
        ({\\\.} {.})
        ({\\!}  {!})))
   (set '*hashed-html-blocks* '())
-  (build-escape-table)
   (set '*list-level* 0))
 
 (define (block-transforms txt)
@@ -111,14 +136,6 @@
        (images 
         (escape-special-chars 
          (escape-special-chars (code-spans txt) 'inside-attributes)))))))))
-
-(define (hash s)
-  (base64-enc (uuid)))
-
-(define (build-escape-table)
-  (set '*escape-table* '())
-  (dolist (c (explode *escape-chars*))
-    (push (list c (hash c)) *escape-table*)))
 
 (define (tokenize-html xhtml)
 ; return list of tag/text portions of xhtml text
@@ -152,11 +169,11 @@
     (dolist (pair temp)
         (if (= (first pair) 'tag)
              ; 'tag
-             (begin
-              (set 'new-text (replace {\\} (last pair) (lookup {\\} *escape-table*) 0))
-              (replace [text](?<=.)</?code>(?=.)[/text] new-text (lookup {`} *escape-table*) 0)
-              (replace {\*} new-text (lookup {*} *escape-table*) 0)
-              (replace {_} new-text (lookup {_} *escape-table*) 0))
+             (begin              
+              (set 'new-text (replace {\\} (last pair) (HashTable {\\}) 0))
+              (replace [text](?<=.)</?code>(?=.)[/text] new-text (HashTable {`}) 0)
+              (replace {\*} new-text (HashTable {*}) 0)
+              (replace {_} new-text (HashTable {_} ) 0))
               ; 'text
               (if  within-tag-attributes
                    (set 'new-text (last pair))
@@ -167,7 +184,7 @@
 
 (define (encode-backslash-escapes t)
    (dolist (pair *escape-pairs*)
-      (replace (first pair) t (lookup (last pair) *escape-table*) 14))
+      (replace (first pair) t (HashTable (last pair)) 14))
  t)
 
 (define (encode-code s)
@@ -175,12 +192,12 @@
   (replace {&}  s   "&amp;" 0)
   (replace {<}  s   "&lt;" 0)
   (replace {>}  s   "&gt;" 0)
-  (replace {\*} s   (lookup {*} *escape-table*) 0)
-  (replace {_}  s   (lookup {_} *escape-table*) 0)
-  (replace "{"  s   (lookup "{" *escape-table*) 0)
-  (replace {\[} s   (lookup {[} *escape-table*) 0)
-  (replace {\]} s   (lookup {]} *escape-table*) 0)
-  (replace {\\} s   (lookup {\} *escape-table*) 0))
+  (replace {\*} s   (HashTable {\\}) 0)
+  (replace {_}  s   (HashTable {_}) 0)
+  (replace "{"  s   (HashTable "{") 0)
+  (replace {\[} s   (HashTable {[}) 0)
+  (replace {\]} s   (HashTable {]}) 0)
+  (replace {\\} s   (HashTable {\}) 0))
 
 (define (code-spans s)
   (replace  
@@ -218,16 +235,16 @@
            (set 'url nil))
        (if url
            (begin 
-              (replace {\*} url (lookup {*} *escape-table*) 0)
-              (replace {_}  url (lookup {_} *escape-table*) 0) 
+              (replace {\*} url (HashTable {*}) 0)
+              (replace {_}  url (HashTable {_}) 0) 
             ))             
        (if (last (lookup id-ref *link-database*))
             ; title
            (begin
              (set 'title (last (lookup id-ref *link-database*)))
              (replace {"}  title {&quot;} 0)
-             (replace {\*} title (lookup {*} *escape-table*) 0)
-             (replace {_}  title (lookup {_} *escape-table*) 0))
+             (replace {\*} title (HashTable {*}) 0)
+             (replace {_}  title (HashTable {_}) 0))
            ; no title
            (set 'title {})
            )       
@@ -259,11 +276,11 @@
         (if  title 
              (begin 
                (replace {"}  title {&quot;} 0)
-               (replace {\*} title (lookup {*} *escape-table*) 0)
-               (replace {_}  title (lookup {_} *escape-table*) 0))
+               (replace {\*} title (HashTable {*}) 0)
+               (replace {_}  title (HashTable {_}) 0))
              (set 'title {}))           
-        (replace {\*} url (lookup {*} *escape-table*) 0)
-        (replace {_} url (lookup {_} *escape-table*) 0)
+        (replace {\*} url (HashTable {*}) 0)
+        (replace {_} url (HashTable {_}) 0)
         (string 
            {<img src="} 
            (trim url) 
@@ -298,13 +315,13 @@
       (if (not (nil? (lookup id *link-database*)))
           (begin
              (set 'url (first (lookup id  *link-database*)))
-             (replace {\*} url (lookup {*} *escape-table*) 0)
-             (replace {_}  url (lookup {_} *escape-table*) 0)
+             (replace {\*} url (HashTable {*}) 0)
+             (replace {_}  url (HashTable {_}) 0)
              (if (set 'title (last (lookup id  *link-database*)))
                  (begin 
                       (replace {"}  title {&quot;} 0)
-                      (replace {\*} title (lookup {*} *escape-table*) 0)
-                      (replace {_}  title (lookup {_} *escape-table*) 0))
+                      (replace {\*} title (HashTable {*}) 0)
+                      (replace {_}  title (HashTable {_}) 0))
                 (set 'title {})))
            (set 'url nil))
       (if url
@@ -341,11 +358,11 @@
       (if title 
            (begin 
              (replace {"}  title {&quot;} 0)
-             (replace {\*} title  (lookup {*} *escape-table*) 0)
-             (replace {_}  title  (lookup {_} *escape-table*) 0))
+             (replace {\*} title  (HashTable {*}) 0)
+             (replace {_}  title  (HashTable {_}) 0))
            (set 'title {}))           
-      (replace {\*} url (lookup {*} *escape-table*) 0)
-      (replace {_}  url (lookup {_} *escape-table*) 0)
+      (replace {\*} url (HashTable {*}) 0)
+      (replace {_}  url (HashTable {_}) 0)
       (replace {^<(.*)>$} url $1 0)
       (string 
          {<a href="} 
@@ -445,7 +462,7 @@
             rgx 
             text-chunk
             (begin
-              (set 'key (hash $1))
+              (set 'key (Hash:hash $1))
               (push (list key $1 ) *hashed-html-blocks* -1)
               (string "\n\n" key "\n\n"))
             2))
@@ -457,7 +474,7 @@
 
 (define (unescape-special-chars t)
  ; Swap back in all the special characters we've hidden. 
-  (dolist (pair *escape-table*)
+  (dolist (pair (HashTable))
     (replace (last pair) t (first pair) 10)) t)
 
 (define (strip-link-definitions txt)
@@ -642,6 +659,7 @@
         (setf (grafs $idx) (string {<p>} (replace {^[ ]*} (span-transforms p) {} (+ 4 8 16)) {</p>}))))
     (join grafs "\n\n")))
 
+[text]
 ; three command line arguments: let's hope last one is a file
 (when (= 3 (length (main-args)))
       (println (markdown (read-file (main-args 2))))
@@ -659,5 +677,5 @@
           (push (current-line) *stdin* -1))
    (println (markdown (join *stdin* "\n")))
    (exit))
-
+[/text]
 ; eof

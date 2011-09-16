@@ -2,7 +2,8 @@
 
 ;; @module parsetime
 ;; @description a module for converting date/time strings into dates
-;; @version 2010-09-22 19:26:07 modified 'cos Lutz broke my code again ('read ' problems)
+;; @version 2011-09-09 16:25:03 
+;;          2010-09-22 19:26:07 modified 'cos Lutz broke my code again ('read ' problems)
 ;; @author cormullion
 ;; Requires timeutilities.lsp
   
@@ -34,6 +35,7 @@
 ((dayname punctuation alphabetic number monthname punctuation year) ("Mittwoch, den 4 May, 2006") (6 (month-number 4) 3))
 ((dayname punctuation monthname number number-suffix punctuation year ) ("Tuesday, August 31st, 1980") (6 (month-number 2) 3)) 
 ((dayname punctuation monthname number punctuation year number colon number alphabetic period alphabetic period) ("Wednesday, August 13, 2009 3:05 p.m.") (5 (month-number 2) 3 (pm-to-24 6) 8 (zero)))
+((dayname punctuation number monthname punctuation year number colon number colon number) ("Wednesday, 13 August, 2009 10:00:00") (5 2 (month-number 3) 6 8 10 (zero))) 
 ((dayname punctuation monthname number punctuation year number colon number colon  number alphabetic period alphabetic period)  ("Wednesday, August 13, 2009 3:15:02 p.m.")  (5 (month-number 2) 3 (pm-to-24 6) 8 10))
 ((dayname punctuation monthname number punctuation year number colon number colon  number pm period)  ("Wed, August 13, 2009 3:15:01 pm.") (5 (month-number 2) 3 (pm-to-24 6) 8 10))
 ((dayname punctuation monthname number punctuation year number colon number colon  number)  ("Wednesday, August 13, 2009 3:16:03") (5 (month-number 2) 3 (pm-to-24 6) 8 10))

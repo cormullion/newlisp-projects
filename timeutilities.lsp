@@ -755,3 +755,29 @@
 
 (context MAIN)
 ; eof
+
+[text]
+; how to work through days of a school term, including half term
+(set 'term-start (Time 2011 9 4)) ; day before
+(set 'term-end (Time 2011 12 17)) ; day after
+(set 'half-term-week 43) ; week number to skip
+
+(for (day (:day-of-year term-start) (:day-of-year term-end))
+     (set 'Td (apply Time (:data (:shift (Time 2011 1 1) day "days"))))
+     ; Td is Time object representing the day in the loop
+     (when  (and (< 0 (:day-of-week Td) 6) (!= (:week-number-monday Td) half-term-week))
+            ; Monday to Friday except during half-term week
+            (println (:show Td)))) 
+ 
+;-> 
+Monday September 05 2011 01:00:00
+Tuesday September 06 2011 01:00:00
+Wednesday September 07 2011 01:00:00
+Thursday September 08 2011 01:00:00
+Friday September 09 2011 01:00:00
+Monday September 12 2011 01:00:00
+...
+Wednesday December 14 2011 00:00:00
+Thursday December 15 2011 00:00:00
+Friday December 16 2011 00:00:00
+[/text]
