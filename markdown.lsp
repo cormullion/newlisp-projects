@@ -65,26 +65,23 @@
 
 (context 'Hash)
 (define HashTable:HashTable)
-(set 'inited nil 'hash-id {} 'counter 0)
-(define (init-hash txt)
-    ; finds a hash identifier that doesn't occur anywhere in the text
-    (set 'inited true)
-    (set 'identifier {})
-    (set 'counter 0)
-    (set 'hash-prefix "HASH")
-    (set 'hash-id (string hash-prefix counter))
-    (do-while (find hash-id txt)
-           (inc counter)
-           (set 'hash-id (string hash-prefix counter)))
-    (Hash:build-escape-table))
-
-(define (hash s)
-   (HashTable s (string hash-id (inc counter))))
 
 (define (build-escape-table)
    (set '*escape-chars* [text]\`*_{}[]()>#+-.![/text])   
    (dolist (c (explode *escape-chars*))
         (HashTable c (hash c))))
+
+(define (init-hash txt)
+    ; finds a hash identifier that doesn't occur anywhere in the text
+    (set 'counter 0)
+    (set 'hash-prefix "HASH")
+    (set 'hash-id (string hash-prefix counter))
+    (do-while (find hash-id txt)
+           (set 'hash-id (string hash-prefix (inc counter))))
+    (Hash:build-escape-table))
+
+(define (hash s)
+   (HashTable s (string hash-id (inc counter))))
 
 (context 'markdown)
 
@@ -184,8 +181,7 @@
 
 (define (encode-backslash-escapes t)
    (dolist (pair *escape-pairs*)
-      (replace (first pair) t (HashTable (last pair)) 14))
- t)
+      (replace (first pair) t (HashTable (last pair)) 14)))
 
 (define (encode-code s)
  ; encode/escape certain characters inside Markdown code runs

@@ -33,3 +33,5 @@ In here you can find:
 -  sparkline.lsp : small graphics using newLISP-GS
 -  tictactoe-gui.lsp : 0s and Xs
 -  timeutilities.lsp : using FOOP to play with dates and times
+
+Last update: 2011-09-18 10:45:38
