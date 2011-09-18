@@ -34,4 +34,4 @@ In here you can find:
 -  tictactoe-gui.lsp : 0s and Xs
 -  timeutilities.lsp : using FOOP to play with dates and times
 
-Last update: 2011-09-18 10:45:38
+Last update: 2011-09-18 10:49:46
