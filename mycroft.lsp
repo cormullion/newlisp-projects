@@ -4,7 +4,7 @@
 ;; @author cormullion at mac dot com
 ;; @description newLISP script profiler
 ;; @location somewhere on github
-;; @version 0.0.1 2011-09-15 16:47:19
+;; @version 0.0.1 of 2011-09-19 16:00:09
 ;; Use Mycroft to profile the performance of a single newLISP script. 
 ;; Use at the command line:
 ;; newlisp mycroft.lsp file-to-profile
@@ -49,10 +49,10 @@
             (cond 
                ((= token-type 'LeftParen)  
                     (inc paren-level)
-                    (write buff (format {<span class="open-paren%d">(} paren-level)))
-               ((= token-type 'RightParen) 
-                    (dec paren-level)
-                    (write buff (format {)</span>})))
+                    (write buff (format {<span class="open-paren%d">(<span class="plain">} paren-level )))
+               ((= token-type 'RightParen)
+                    (write buff (format {</span>)</span>}))
+                    (dec paren-level))
                ((= token-type 'Symbol)
                     (cond
                       ((find token-value newlisp-variables)
@@ -64,8 +64,10 @@
                       (true
                           (write buff (string {<span class="symbol">}   (Html:escape-html token-value) {</span>})))))
                ((= token-type 'WhiteSpace)  
+                    (write buff {<span class="white-space">})
                     (dostring (s (base64-dec (string token-value))) 
-                        (write buff (char s))))
+                        (write buff (char s)))
+                    (write buff {</span>}))
                ((= token-type 'BracedString)  
                     (write buff (string {<span class="braced-string">} "{" (Html:escape-html token-value) "}" {</span>})))
                ((= token-type 'QuotedString)  
@@ -234,75 +236,51 @@ pre, code {
 	/* Opera 7 */
 	word-wrap: break-word;
 	/* Internet Explorer 5.5+ */ }
-.symbol { color: #3300ff; }
-.built-in {color: #660044; font-weight: bold; }
-.obsolete {color: #ffff00; background: #000;  opacity: 0.5}
-.variable { color: #880077; }
-.open-paren { color: #777777; }
-.close-paren { color: #777777; }
-.braced-string {color: #226666; background: #eeffff; opacity: 0.5}
-.quoted-string {color: #226666; background: #eeffff;  opacity: 0.5}
-.bracketed-string {color: #226666; background: #eeffff;  opacity: 0.5}
-.quote { color: #224400; }
-.comment {color: #666666; font-family: serif; }
-.integer { color: #113366; }
-.float { color: #335533; }
-.hex { color: #336633; }
-.octal { color: #336699; }
+.symbol { color: #dd3333; background: #ffffff;}
+.built-in {color: #550000; font-weight: bold;}
+.obsolete {color: #ffff00; background: #000;}
+.variable { color: #ff8888; background: #eeffff;}
+/* .open-paren { color: #777777; background: #eeffff;} */
+/* .close-paren { color: #777777; background: #eeffff;} */
+.braced-string {color: #226666; background: #eeffff;}
+.quoted-string {color: #226666; background: #eeffff;}
+.bracketed-string {color: #226666; background: #eeffff;}
+.quote { color: #224400; background: #eeffff;}
+.comment {color: #666666; font-family: serif; background: #eeffee;}
+.integer { color: #113366; background: #eeffbb; }
+.float { color: #335533; background: #eeffcd;}
+.hex { color: #336633;  background: #eeffdc;}
+.octal { color: #336699; background: #ffffff;}
+.white-space {background: #ffffff; opacity:0.5;}
+.plain {background-color: #fff;}
+
 span.open-paren1 {
-	background-color: #FFF;
-	-webkit-transition: background-color 0.1s linear; }
+	color:  #cc0; }
 span.open-paren1:hover {
-	color: inherit;
-	background-color: #6FC;}
+   -webkit-transition: background-color 0.7s linear; 
+	background-color: #777; }
+
 span.open-paren2 {
-	background-color: inherit;
-	-webkit-transition: background-color 0.1s linear; }
+	color:  #c0c; }
 span.open-paren2:hover {
-	color: inherit;
-	background-color: #6C6; }
+	background-color: #777; }
+
 span.open-paren3 {
-	background-color: inherit;
-	-webkit-transition: background-color 0.1s linear; }
+	color:  #0cc; }
 span.open-paren3:hover {
-	color: inherit;
-	background-color: #0F0; }
+	background-color: #777; }
+
 span.open-paren4 {
-	background-color: inherit;
-	-webkit-transition: background-color 0.1s linear; }
+	color:  #cc4; }
 span.open-paren4:hover {
-	color: inherit;
-	background-color: #3F3; }
+	background-color: #777; }
+
 span.open-paren5 {
-	background-color: inherit;
-	-webkit-transition: background-color 0.1s linear; }
+	color:  #4cc; }
 span.open-paren5:hover {
-	color: inherit;
-	background-color: #6F6; }
-span.open-paren6 {
-	background-color: inherit;
-	-webkit-transition: background-color 0.1s linear; }
-span.open-paren6:hover {
-	color: inherit;
-	background-color: #9F9; }
-span.open-paren7 {
-	background-color: inherit;
-	-webkit-transition: background-color 0.1s linear; }
-span.open-paren7:hover {
-	color: inherit;
-	background-color: #9C6; }
-span.open-paren8 {
-	background-color: inherit;
-	-webkit-transition: background-color 0.1s linear; }
-span.open-paren8:hover {
-	color: inherit;
-	background-color: #CF3; }
-span.open-paren9 {
-	background-color: inherit;
-	-webkit-transition: background-color 0.1s linear; }
-span.open-paren9:hover {
-	color: inherit;
-	background-color: #FF6; }
+	background-color: #777; }
+
+
 </style>
 </head>
 [/text]))
@@ -359,31 +337,25 @@ span.open-paren9:hover {
 (set 'function-data '())
 (set 'results '())
 
-(define (time-list-to-microseconds l)
-   ; convert list of (minute second microseconds) to microseconds
-   (+ (* 1000000 60 (first l)) (* 1000000 (first (rest l))) (last l)))
-
 (define (start)
-    (set 'results (list (list 'start (4 3 (now))))))
+    (set 'results (list (list 'start (time-of-day)))))
 
 (define (stop)
-    (push (list 'stop (4 3 (now))) results -1))
+    (push (list 'stop (time-of-day)) results -1))
 
 (define (crunch-numbers)
-  (set 'time-taken
-      (-  (time-list-to-microseconds (last (last results))) 
-          (time-list-to-microseconds (last (first results)))))
-  ; convert last item of each entry in results to elapsed time for that call
-  ; by subtracting it from the following one
-  (set 'l (time-list-to-microseconds (last (first results))))
-    ; but don't do last one
+  (println {started crunching numbers }) 
+  (let ((time-taken (sub (last (last results)) (last (first results)))))
+    ; for each entry in results, find elapsed time for that call
+    ; by subtracting it from the previous one
+    ; but don't do last one    
+  (set 'previous (first results))
   (for (i 0 (dec (length results) 2))
        (set 'current (results i))
-       (setf (last (results i)) 
-          (-  (time-list-to-microseconds (last (results (+ i 1)))) 
-              (time-list-to-microseconds (last current))))
-       (set 'l (time-list-to-microseconds (last current))))
-  (setf (last (last results)) 0)
+       (push (list (first previous) (sub (last current) (last previous))) results1 -1)
+       (set 'previous current))
+  (set 'results results1)
+  (pop results)
   ; results now contains every call to each function in the order it was called, with time taken each call  
   ; gather into new dictionary Call-list, one entry per function
   (dolist (t results)
@@ -394,10 +366,9 @@ span.open-paren9:hover {
   ; no longer need these in the list
   (Call-list "start" nil)
   (Call-list "stop" nil)
-  (set 'total-function-calls (- (length results) 2))
-  
+  (set 'total-function-calls (length results))
   ; functions are sorted by name and have accumulated duration totals
-  ; add up durations - another view of total elapsed time! 
+  ; add up durations - another view of total elapsed time  
   (set 'total-function-call-time 0)
   (map (fn (pr) (inc total-function-call-time (last pr))) (Call-list))
   ; add extra data to the list
@@ -410,14 +381,14 @@ span.open-paren9:hover {
         (set 'fname (first $it))
         (set 'total-time (last $it))
     (list fname ; function-name
-          (round (mul 100 (div (last $it) total-function-call-time)) -1) ; time as percentage of total time
+           (mul 100 (div (last $it) total-function-call-time))   ; time as percentage of total time
           ; number of times function was called
           ; results holds symbols but function-data (call-list) holds strings...
           ; read-expr translates string to symbol in context but does not evaluate it
           (length (find-all (list (read-expr fname) '+) results))
           ; total microseconds for this function
           total-time))
-    match))
+    match)))
 
 ; add time data stuff to each function defined with 'define'
 (define-macro (Mycroft:define farg)
@@ -431,7 +402,7 @@ span.open-paren9:hover {
                               (rest farg)))
                       body (cons 'begin (args)))
                   (lambda arg 
-                    (push (list '@fn (4 3 (now))) Mycroft:results -1) body)))
+                    (push (list '@fn (time-of-day)) Mycroft:results -1) body)))
         (if (args) (set farg (eval (first (args)))) (set farg nil))))
 
 (define (Mycroft:exit)
@@ -459,7 +430,7 @@ span.open-paren9:hover {
         (println (string "sorry the file didn't load and execute correctly:\n\t" error))
         (newLISP-exit))
 (stop)
-(set 'finish-timing (- (time-of-day) start-timing))
+(set 'finish-timing (sub (time-of-day) start-timing))
 
 ; Stage 5: analyse data and produce report 
 
@@ -474,7 +445,7 @@ span.open-paren9:hover {
 (Html:heading 2 (string {Mycroft: report: } *file*))
 (Html:key-value {file:} (Html:escape-html (real-path *file*)))
 (Html:key-value {date:} (date))
-(Html:key-value {time:} (string (round (div total-function-call-time 1000000) -3)  " seconds"))
+(Html:key-value {time:} (string (div total-function-call-time 1000)  " seconds"))
 (Html:key-value {function calls:} (string total-function-calls))
 (Html:key-value {operating system:} ostype)
 (Html:key-value {newLISP version} (sys-info -2))
@@ -487,18 +458,19 @@ span.open-paren9:hover {
 (Html:start-bar-chart "Timings" " % of total execution time")
 (dolist (f-data (sort function-data (fn (a b) (> (last a) (last b)))))
  ; f-data is: function-name | time as % of total time | number of times function was called | total microseconds
-  (set 'avg-time (round (div (f-data 3) (f-data 2)) 0))
+ ;                  0                   1                               2                               3
+  (set 'avg-time (round (div (f-data 3) (f-data 2)) -2))
   (Html:add-bar 
-       (f-data 0)    ; item
-       (f-data 1)    ; count-value
-       "%"           ; unit-string 
-       (f-data 1)    ; index-value
+       (f-data 0)                   ; item
+       (round (f-data 1) -1)        ; count-value
+       "%"                          ; unit-string 
+       (f-data 1)                   ; index-value
+      ; hover-text
       (string 
         (f-data 2) (if (= (f-data 2) 1) { call; (} { calls; (}) ; shouldn't have "1 calls" ! :)
-        (round (mul (div (f-data 2) total-function-calls) 100) -1) {%);}
-        { average: } avg-time { &#956;s; }
-        { total: } (f-data 3) { &#956;s } 
-      ) 
+        (round (mul (div (f-data 2) total-function-calls) 100) -2) {% of total);}
+        { average: } avg-time { ms; }
+        { total: } (round (f-data 3) -1) { ms }) 
       "#Source"))
 (Html:end-bar-chart)
 
@@ -509,7 +481,7 @@ span.open-paren9:hover {
          (f-data 2)        ; count-value
          " x"              ; unit-string 
          (mul 100 (div (f-data 2) ((first function-data) 2))) ; index-value
-         (string { (} (round (mul (div (f-data 2) total-function-calls) 100) -1) {%)}) ; hover-text
+         (string { (} (round (mul (div (f-data 2) total-function-calls) 100) 0) {%)}) ; hover-text
          "#Source"         ; link-text
          ))
 (Html:end-bar-chart)

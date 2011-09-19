@@ -4,7 +4,7 @@
 ;; @author cormullion
 ;; @description  newLISP source code lexer/tokenizer/parser
 ;; @location somewhere on github
-;; @version 0.1 2011-09-15 15:06:50
+;; @version 0.1 of 2011-09-19 08:55:19
 ;;<h4>About this module</h4>
 ;;<p>The Nlex module is a lexer/tokenizer/parser for newLISP source code.
 ;; An expert from StackOverflow xplains:
@@ -71,7 +71,7 @@
   (let ((res c) (ch ""))
      (while (and (!= (set 'ch (get-next-char)) "\n") ch)
         (push ch res -1))
-    (add-to-parse-tree (list 'Comment res))))
+    (add-to-parse-tree (list 'Comment (string res "\n")))))
     
 (define (read-identifier c)
   (let ((res c) (ch ""))
@@ -235,7 +235,8 @@
         (dec *depth*)
         (pop *loc*))
     (true
-        (push token-pair *tree* *loc*)))))
+        (push token-pair *tree* *loc*)
+        true))))
 
 (define (parse-newlisp src)
   ; main function: tokenize/lex/parse the string in src
@@ -252,8 +253,8 @@
 
 (define (nlx-to-plaintext nlx (depth 0))
    (if (= depth 0) (set 'buff {})) ; if first pass, initialize a buffer
-   (dolist (i nlx)
-    (set 'token-type (first i) 'token-value (last i))
+   (dolist (element nlx)
+    (set 'token-type (first element) 'token-value (last element))
     (if (atom? token-type)
         (cond 
            ((= token-type 'LeftParen) ; left parenthesis
@@ -272,26 +273,26 @@
            ((= token-type 'Quote); quote
                 (extend buff (string  "'")))
            ((= token-type 'Comment) ; comment
-                (extend buff (string (last i) "\n")))
+                (extend buff (string (last element) "\n")))
            ((= token-type 'Integer) ; int
-                (extend buff (string (int (last i)))))
+                (extend buff (string (int (last element)))))
            ((= token-type 'Float) ; float
-                (extend buff (string (precise-float (last i)))))  
+                (extend buff (string (precise-float (last element)))))  
            ((= token-type 'Scientific) ; scientific notation
-                (extend buff (scientific-float (last i))))  
+                (extend buff (scientific-float (last element))))  
            ((= token-type 'BracketedCommand) ; bracketed command
-               (extend buff (string {[cmd]} (last i) {[/cmd]})))
+               (extend buff (string {[cmd]} (last element) {[/cmd]})))
            ((or 
                 (= token-type 'Symbol) ; close parenthesis
                 (= token-type 'Hex) ; hex
                 (= token-type 'NaN) ; not a number
                 (= token-type 'Octal) ; octal
                 )
-                (extend buff (string (last i))))
+                (extend buff (string (last element))))
            ((= token-type 'BracketedIdentifier) ; bracketed identifier
-                (extend buff (string {[} (last i) {]}))))
+                (extend buff (string {[} (last element) {]}))))
         ; not an atom, so recurse but don't initialize buffer
-        (nlx-to-plaintext i 1)))
+        (nlx-to-plaintext element 1)))
    buff)
 
 ;eof
