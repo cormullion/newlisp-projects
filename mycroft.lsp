@@ -4,7 +4,7 @@
 ;; @author cormullion at mac dot com
 ;; @description newLISP script profiler
 ;; @location somewhere on github
-;; @version 0.0.1 of 2011-09-19 16:00:09
+;; @version 0.0.2 of 2011-09-19 23:07:06
 ;; Use Mycroft to profile the performance of a single newLISP script. 
 ;; Use at the command line:
 ;; newlisp mycroft.lsp file-to-profile
@@ -240,8 +240,6 @@ pre, code {
 .built-in {color: #550000; font-weight: bold;}
 .obsolete {color: #ffff00; background: #000;}
 .variable { color: #ff8888; background: #eeffff;}
-/* .open-paren { color: #777777; background: #eeffff;} */
-/* .close-paren { color: #777777; background: #eeffff;} */
 .braced-string {color: #226666; background: #eeffff;}
 .quoted-string {color: #226666; background: #eeffff;}
 .bracketed-string {color: #226666; background: #eeffff;}
@@ -251,36 +249,71 @@ pre, code {
 .float { color: #335533; background: #eeffcd;}
 .hex { color: #336633;  background: #eeffdc;}
 .octal { color: #336699; background: #ffffff;}
-.white-space {background: #ffffff; opacity:0.5;}
-.plain {background-color: #fff;}
+.white-space {background: #ffffff;}
+.plain {background-color: #fff}
 
 span.open-paren1 {
-	color:  #cc0; }
+	color:  #777; }
 span.open-paren1:hover {
    -webkit-transition: background-color 0.7s linear; 
-	background-color: #777; }
+	color: #fff;
+	background-color: #222; }
 
 span.open-paren2 {
-	color:  #c0c; }
+	color:  #777; }
 span.open-paren2:hover {
-	background-color: #777; }
+ -webkit-transition: background-color 0.7s linear; 
+    color: #fff;
+	background-color: #333; }
 
 span.open-paren3 {
-	color:  #0cc; }
+	color:  #777; }
 span.open-paren3:hover {
-	background-color: #777; }
+ -webkit-transition: background-color 0.7s linear; 
+    color: #fff;
+	background-color: #343; }
 
 span.open-paren4 {
-	color:  #cc4; }
+	color:  #777; }
 span.open-paren4:hover {
-	background-color: #777; }
+ -webkit-transition: background-color 0.7s linear; 
+	background-color: #344; }
 
 span.open-paren5 {
-	color:  #4cc; }
+	color:  #877; }
 span.open-paren5:hover {
-	background-color: #777; }
+ -webkit-transition: background-color 0.7s linear; 
+	background-color: #444; }
 
+span.open-paren6 {
+	color:  #787; }
+span.open-paren6:hover {
+ -webkit-transition: background-color 0.7s linear; 
+	background-color: #544; }
 
+span.open-paren7 {
+	color:  #888; }
+span.open-paren7:hover {
+ -webkit-transition: background-color 0.7s linear; 
+	background-color: #545; }
+	
+span.open-paren8 {
+	color:  #999; }
+span.open-paren8:hover {
+ -webkit-transition: background-color 0.7s linear; 
+	background-color: #666; }
+
+span.open-paren9 {
+	color:  #999; }
+span.open-paren9:hover {
+ -webkit-transition: background-color 0.7s linear; 
+	background-color: #666; }
+
+span.open-paren10 {
+	color:  #999; }
+span.open-paren10:hover {
+ -webkit-transition: background-color 0.7s linear; 
+	background-color: #666; }
 </style>
 </head>
 [/text]))
@@ -344,53 +377,53 @@ span.open-paren5:hover {
     (push (list 'stop (time-of-day)) results -1))
 
 (define (crunch-numbers)
-  (println {started crunching numbers }) 
-  (let ((time-taken (sub (last (last results)) (last (first results)))))
+   (println {started crunching numbers }) 
+   (let ((time-taken (sub (last (last results)) (last (first results)))))
     ; for each entry in results, find elapsed time for that call
     ; by subtracting it from the previous one
-    ; but don't do last one    
-  (set 'previous (first results))
-  (for (i 0 (dec (length results) 2))
-       (set 'current (results i))
-       (push (list (first previous) (sub (last current) (last previous))) results1 -1)
-       (set 'previous current))
-  (set 'results results1)
-  (pop results)
-  ; results now contains every call to each function in the order it was called, with time taken each call  
-  ; gather into new dictionary Call-list, one entry per function
-  (dolist (t results)
-     (if (set 'tm (Call-list (string (first t))))
-         (Call-list  (string (first t)) (inc (last t) tm))
-         (Call-list  (string (first t)) (last t))))
-  ; to tidy output, remove the ones we added
-  ; no longer need these in the list
-  (Call-list "start" nil)
-  (Call-list "stop" nil)
-  (set 'total-function-calls (length results))
-  ; functions are sorted by name and have accumulated duration totals
-  ; add up durations - another view of total elapsed time  
-  (set 'total-function-call-time 0)
-  (map (fn (pr) (inc total-function-call-time (last pr))) (Call-list))
-  ; add extra data to the list
-  ; don't need to copy - the generated assoc list is an on-the-fly copy, not the original
-  (set 'function-data (Call-list))
-  (replace
-    '(+ +)
-    function-data
-    (begin
-        (set 'fname (first $it))
-        (set 'total-time (last $it))
-    (list fname ; function-name
-           (mul 100 (div (last $it) total-function-call-time))   ; time as percentage of total time
-          ; number of times function was called
-          ; results holds symbols but function-data (call-list) holds strings...
-          ; read-expr translates string to symbol in context but does not evaluate it
-          (length (find-all (list (read-expr fname) '+) results))
-          ; total microseconds for this function
-          total-time))
-    match)))
+    ; quicker: build new list then swap     
+      (set 'previous (first results))
+      (for (i 0 (dec (length results) 2))
+           (set 'current (results i))
+           (push (list (first previous) (sub (last current) (last previous))) results1 -1)
+           (set 'previous current))
+      (set 'results results1)
+      (pop results) ; but don't do last one
+      ; results now contains every call to each function in the order it was called, with time taken each call  
+      ; gather into new dictionary Call-list, one entry per function
+      (dolist (t results)
+         (if (set 'tm (Call-list (string (first t))))
+             (Call-list  (string (first t)) (inc (last t) tm))
+             (Call-list  (string (first t)) (last t))))
+      ; to tidy output, remove the ones we added
+      ; no longer need these in the list
+      (Call-list "start" nil)
+      (Call-list "stop" nil)
+      (set 'total-function-calls (length results))
+      ; functions are sorted by name and have accumulated duration totals
+      ; add up durations - another view of total elapsed time  
+      (set 'total-function-call-time 0)
+      (map (fn (pr) (inc total-function-call-time (last pr))) (Call-list))
+      ; add extra data to the list
+      ; don't need to copy - the generated assoc list is an on-the-fly copy, not the original
+      (set 'function-data (Call-list))
+      (replace
+        '(+ +)
+        function-data
+        (begin
+            (set 'fname (first $it))
+            (set 'total-time (last $it))
+        (list fname ; function-name
+               (mul 100 (div (last $it) total-function-call-time))   ; time as percentage of total time
+              ; number of times function was called
+              ; results holds symbols but function-data (call-list) holds strings...
+              ; read-expr translates string to symbol in context but does not evaluate it
+              (length (find-all (list (read-expr fname) '+) results))
+              ; total microseconds for this function
+              total-time))
+        match)))
 
-; add time data stuff to each function defined with 'define'
+; add a time stamp to each function defined with 'define'
 (define-macro (Mycroft:define farg)
     (if (list? farg)
         (set  (farg 0)

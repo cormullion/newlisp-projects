@@ -5,20 +5,20 @@
 (define (test test-name original (display? nil))
     (letn ((parsed       (Nlex:parse-newlisp original)) 
            (new-original (Nlex:nlx-to-plaintext parsed)))
-    (set 'parsed-original (parse original) 'parsed-new-original (parse new-original)) 
-    (if-not (and (empty? (difference parsed-original parsed-new-original))
-                 (empty? (difference parsed-new-original parsed-original )))
-        (begin
-            (println 
-                (format "test %-40s failed: in old: \t %-60s" test-name  
-                    (string (difference (parse original) (parse new-original)))))
-            (println 
-                (format "test %-40s failed: in new: \t %-60s" test-name  
-                    (string (difference (parse new-original) (parse original))))))
-         (println   (format "test %-40s passed" test-name)))
-    (set 'original-lines (parse original "\n") 'new-original-lines (parse new-original "\n"))
-    (if display? (dolist (line original-lines)
-       (print (format "\t%-60s \t %-60s \n" line (new-original-lines $idx) ))))))
+        (set 'parsed-original (parse original) 'parsed-new-original (parse new-original)) 
+        (if-not (and (empty? (difference parsed-original parsed-new-original))
+                     (empty? (difference parsed-new-original parsed-original )))
+            (begin
+                (println 
+                    (format "test %-40s failed: in old: \t %-60s" test-name  
+                        (string (difference (parse original) (parse new-original)))))
+                (println 
+                    (format "test %-40s failed: in new: \t %-60s" test-name  
+                        (string (difference (parse new-original) (parse original))))))
+             (println   (format "test %-40s passed" test-name)))
+        (set 'original-lines (parse original "\n") 'new-original-lines (parse new-original "\n"))
+        (if display? (dolist (line original-lines)
+           (print (format "\t%-60s \t %-60s \n" line (new-original-lines $idx) ))))))
 
 ; numbers
 (test {integers }   {(map + 1 2 3 123 -1212312312 -13 -14 0 3 6 01 02 03 04 05 06 07 08 09 11 16)})
