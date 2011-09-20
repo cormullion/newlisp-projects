@@ -4,7 +4,7 @@
 ;; @author cormullion at mac dot com
 ;; @description newLISP script profiler
 ;; @location somewhere on github
-;; @version 0.0.2 of 2011-09-19 23:07:06
+;; @version 0.0.2 of 2011-09-20 13:02:56
 ;; Use Mycroft to profile the performance of a single newLISP script. 
 ;; Use at the command line:
 ;; newlisp mycroft.lsp file-to-profile
@@ -77,7 +77,7 @@
                ((= token-type 'Quote)
                     (write buff (string {<span class="quote">'</span>})))
                ((= token-type 'Comment)  
-                    (write buff (string {<span class="comment">} (Html:escape-html token-value) {</span>} "\n" )))
+                    (write buff (string {<span class="comment">} (Html:escape-html token-value) {</span>} )))
                ((= token-type 'Integer)  
                     (write buff (string {<span class="integer">} (int token-value) {</span>})))
                ((= token-type 'Float)  
@@ -131,7 +131,6 @@
 	list-style-type: none; }
 body {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 11pt;
 	color: #222; }
 a {
 	color: #555;
@@ -145,7 +144,6 @@ a:hover span {
 	float: right;
 	z-index: 100;
 	border: 0px dotted #c0c0c0;
-	font-size: 1em;
 	color: #282; }
 h2, h3, h4 { clear: both; }
 h2, h3 {
@@ -168,18 +166,16 @@ h4 {
 	clear: left;
 	float: left;
 	display: block;
-	width: 220px;
+	width: 230px;
 	text-align: left;
 	color: #111;
-	font-weight: bold;
-	font-size: 0.875em; }
+	font-weight: bold;}
 .main .value {
 	float: left;
 	display: block;
 	text-align: left;
 	color: #222;
-	font-weight: normal;
-	font-size: 0.875em; }
+	font-weight: normal;}
 .chartlist {
 	float: left;
 	border-top: 1px solid #ccc;
@@ -244,7 +240,12 @@ pre, code {
 .quoted-string {color: #226666; background: #eeffff;}
 .bracketed-string {color: #226666; background: #eeffff;}
 .quote { color: #224400; background: #eeffff;}
-.comment {color: #666666; font-family: serif; background: #eeffee;}
+.comment
+{
+	color: #666666;
+	font-family: serif;
+	background: #eeffee;
+}
 .integer { color: #113366; background: #eeffbb; }
 .float { color: #335533; background: #eeffcd;}
 .hex { color: #336633;  background: #eeffdc;}
@@ -253,67 +254,68 @@ pre, code {
 .plain {background-color: #fff}
 
 span.open-paren1 {
-	color:  #777; }
+	color:  #666; }
 span.open-paren1:hover {
    -webkit-transition: background-color 0.7s linear; 
-	color: #fff;
-	background-color: #222; }
+	color: #000;
+	background-color: #f90; }
 
 span.open-paren2 {
-	color:  #777; }
+	color:  #666; }
 span.open-paren2:hover {
  -webkit-transition: background-color 0.7s linear; 
-    color: #fff;
-	background-color: #333; }
+    color: #111;
+	background-color: #f20; }
 
 span.open-paren3 {
-	color:  #777; }
+	color:  #666; }
 span.open-paren3:hover {
  -webkit-transition: background-color 0.7s linear; 
-    color: #fff;
-	background-color: #343; }
+    color: #222;
+	background-color: #59f; }
 
 span.open-paren4 {
-	color:  #777; }
+	color:  #666; }
 span.open-paren4:hover {
  -webkit-transition: background-color 0.7s linear; 
-	background-color: #344; }
+    color: #333;
+	background-color: #FFA3CF; }
 
 span.open-paren5 {
-	color:  #877; }
+	color:  #666; }
 span.open-paren5:hover {
  -webkit-transition: background-color 0.7s linear; 
-	background-color: #444; }
+	background-color: #BCA9FF; }
 
 span.open-paren6 {
-	color:  #787; }
+	color:  #666; }
 span.open-paren6:hover {
  -webkit-transition: background-color 0.7s linear; 
-	background-color: #544; }
+	background-color: #FFDCA1; }
 
 span.open-paren7 {
-	color:  #888; }
+	color:  #666; }
 span.open-paren7:hover {
  -webkit-transition: background-color 0.7s linear; 
-	background-color: #545; }
+	background-color: #9DFFAA; }
 	
 span.open-paren8 {
-	color:  #999; }
+	color:  #666; }
 span.open-paren8:hover {
  -webkit-transition: background-color 0.7s linear; 
-	background-color: #666; }
+	background-color: #ACD2FF; }
 
 span.open-paren9 {
-	color:  #999; }
+	color:  #666; }
 span.open-paren9:hover {
- -webkit-transition: background-color 0.7s linear; 
-	background-color: #666; }
+    -webkit-transition: background-color 0.7s linear; 
+	background-color: #AFFFFB; }
 
 span.open-paren10 {
-	color:  #999; }
-span.open-paren10:hover {
+	color:  #666; }
+    span.open-paren10:hover {
  -webkit-transition: background-color 0.7s linear; 
-	background-color: #666; }
+	background-color: #EBFFD6; }
 </style>
 </head>
 [/text]))
@@ -478,7 +480,7 @@ span.open-paren10:hover {
 (Html:heading 2 (string {Mycroft: report: } *file*))
 (Html:key-value {file:} (Html:escape-html (real-path *file*)))
 (Html:key-value {date:} (date))
-(Html:key-value {time:} (string (div total-function-call-time 1000)  " seconds"))
+(Html:key-value {time:} (string (round total-function-call-time 0) {ms, } (div total-function-call-time 1000)  " seconds"))
 (Html:key-value {function calls:} (string total-function-calls))
 (Html:key-value {operating system:} ostype)
 (Html:key-value {newLISP version} (sys-info -2))
