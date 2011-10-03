@@ -1,24 +1,24 @@
 #!/usr/bin/env newlisp
 
 ;; @module newlispdoc
-;; @description Generates documentation and hightligted source from newLISP source files.
+;; @description Generates documentation and highlighted source from newLISP source files.
 ;; @version 1.3 - handle remote files specified in URLs in a url-file
 ;; @version 1.4 - title on page changed to index or module name and new index module option
 ;; @version 1.5 - removed font restrictions on h1,h2,h3,h4 and added hr as a legal tag
 ;; @version 1.6 - don't allow 3 semicolons at the beginning of a comment line
-;; @version 1.7 - 1.6 did not sense lines with semicolon only as parapgraph separators
+;; @version 1.7 - 1.6 did not sense lines with semicolon only as paragraph separators
 ;; @version 1.8 - fixed problem of "true" appearing before multiple syntax statements
 ;; @version 1.9 - write-line is now version sensitive for 10.0
 ;; @version 2.0 - adds handling of < ?...>  XML tag
 ;; @version 2.1 - generate more compliant HTML 4.01 for doc and syntax highlighting
-;;                but special arithmetik op characters in functionnames still cause
+;;                but special arithmetic op characters in functionnames still cause
 ;;                non-compliant HTML (this occurs only in modules/gmp.lsp)
 ;; @version 2.2 - fix issue with paragraph spacing and module text font from 2.1
 ;; @version 2.3 - handle scientific notation with e
 ;; @version 2.4 - improved keyword regex for syntax highlighting
 ;; @version 2.5 - scientific notation with E
 ;; @version 2.6 - allow custom tags e.g: @MyTag the descriptive text (may contain @link)
-;; @version 2.7 - link rag did not work at beginnning of line
+;; @version 2.7 - link rag did not work at beginning of line
 ;; @version 2.8 - support for newLISPdoc tag color
 ;; @version 2.9 - correctly highlight & and ^ keywords
 ;; @version 3.0 - when -d is specified, add download link
