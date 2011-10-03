@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[open ${1:<str-path-file>} ${2:<str-access-mode>} [${3:<str-option>}]]]></content>
-      <tabTrigger>open</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>open</description>
-  </snippet>
-  

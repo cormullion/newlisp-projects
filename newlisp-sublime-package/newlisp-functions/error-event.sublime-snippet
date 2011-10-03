@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[error-event ${1:<sym-event-handler | func-event-handler>}|${2:<sym-event-handler | func-event-handler>}]]></content>
-      <tabTrigger>error-event</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>error-event</description>
-  </snippet>
-  

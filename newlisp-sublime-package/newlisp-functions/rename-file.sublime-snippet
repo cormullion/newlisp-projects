@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[rename-file ${1:<str-path-old>} ${2:<str-path-new>}]]></content>
-      <tabTrigger>rename-file</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>rename-file</description>
-  </snippet>
-  

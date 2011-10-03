@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[match ${1:<list-pattern>} ${2:<list-match>} [${3:<bool>}]]]></content>
-      <tabTrigger>match</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>match</description>
-  </snippet>
-  

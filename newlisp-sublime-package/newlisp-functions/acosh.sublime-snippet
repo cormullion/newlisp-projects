@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[acosh ${1:<num-radians>}]]></content>
-      <tabTrigger>acosh</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>acosh</description>
-  </snippet>
-  

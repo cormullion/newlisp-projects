@@ -220,4 +220,6 @@
 (gs:set-visible 'f true)
 (update-spark)
 (gs:listen)
+
+(exit)
 ; eof

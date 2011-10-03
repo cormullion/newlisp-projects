@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[load ${1:<str-file-name-1>} [${2:<str-file-name-2>}  ] [${3:<sym-context>}]]]></content>
-      <tabTrigger>load</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>load</description>
-  </snippet>
-  

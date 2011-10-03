@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[lookup ${1:<exp-key>} ${2:<list-assoc>} [${3:<int-index>} [${4:<exp-default>}]]]]></content>
-      <tabTrigger>lookup</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>lookup</description>
-  </snippet>
-  

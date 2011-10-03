@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[sort ${1:<list>} [${2:<func-compare>}]]]></content>
-      <tabTrigger>sort</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>sort</description>
-  </snippet>
-  

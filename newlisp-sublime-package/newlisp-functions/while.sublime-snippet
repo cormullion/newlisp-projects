@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[while ${1:<exp-condition>} ${2:<body>}]]></content>
-      <tabTrigger>while</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>while</description>
-  </snippet>
-  

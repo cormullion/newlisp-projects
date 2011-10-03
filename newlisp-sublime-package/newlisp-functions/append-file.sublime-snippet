@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[append-file ${1:<str-filename>} ${2:<str-buffer>}]]></content>
-      <tabTrigger>append-file</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>append-file</description>
-  </snippet>
-  

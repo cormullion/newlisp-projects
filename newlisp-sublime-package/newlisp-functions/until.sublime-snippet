@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[until ${1:<exp-condition>} [${2:<body>}]]]></content>
-      <tabTrigger>until</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>until</description>
-  </snippet>
-  

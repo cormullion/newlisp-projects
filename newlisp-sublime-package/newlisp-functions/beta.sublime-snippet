@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[beta ${1:<cum-a>} ${2:<num-b>}]]></content>
-      <tabTrigger>beta</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>beta</description>
-  </snippet>
-  

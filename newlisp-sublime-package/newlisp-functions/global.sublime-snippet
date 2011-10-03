@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[global ${1:<sym-1>} [${2:<sym-2>}  ]]]></content>
-      <tabTrigger>global</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>global</description>
-  </snippet>
-  

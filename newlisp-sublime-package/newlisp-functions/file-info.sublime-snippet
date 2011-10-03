@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[file-info ${1:<str-name>} [${2:<int-index>} [${3:<bool-flag>}]]]]></content>
-      <tabTrigger>file-info</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>file-info</description>
-  </snippet>
-  

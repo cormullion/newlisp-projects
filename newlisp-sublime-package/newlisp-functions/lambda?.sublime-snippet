@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[lambda? ${1:<exp>}]]></content>
-      <tabTrigger>lambda?</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>lambda?</description>
-  </snippet>
-  

@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[eval ${1:<exp>}]]></content>
-      <tabTrigger>eval</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>eval</description>
-  </snippet>
-  

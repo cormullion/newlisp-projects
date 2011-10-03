@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[case ${1:<exp-switch>} (${2:<exp-1>} ${3:<body-1>}) [(${4:<exp-2>} ${5:<body-2>})  ]]]></content>
-      <tabTrigger>case</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>case</description>
-  </snippet>
-  

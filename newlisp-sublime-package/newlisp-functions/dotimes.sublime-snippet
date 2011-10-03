@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[dotimes (${1:<sym-var>} ${2:<int-count>} [${3:<exp-break>}]) ${4:<body>}]]></content>
-      <tabTrigger>dotimes</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>dotimes</description>
-  </snippet>
-  

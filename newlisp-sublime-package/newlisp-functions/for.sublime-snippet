@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[for (${1:<sym>} ${2:<num-from>} ${3:<num-to>} [${4:<num-step>} [${5:<exp-break>}]]) ${6:<body>}]]></content>
-      <tabTrigger>for</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>for</description>
-  </snippet>
-  

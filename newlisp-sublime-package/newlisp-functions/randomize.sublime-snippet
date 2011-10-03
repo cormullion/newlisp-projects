@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[randomize ${1:<list>} [${2:<bool>}]]]></content>
-      <tabTrigger>randomize</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>randomize</description>
-  </snippet>
-  

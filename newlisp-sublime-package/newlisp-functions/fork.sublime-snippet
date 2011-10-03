@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[fork ${1:<exp>}]]></content>
-      <tabTrigger>fork</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>fork</description>
-  </snippet>
-  

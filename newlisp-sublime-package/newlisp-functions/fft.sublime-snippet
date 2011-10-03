@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[fft ${1:<list-num>}]]></content>
-      <tabTrigger>fft</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>fft</description>
-  </snippet>
-  

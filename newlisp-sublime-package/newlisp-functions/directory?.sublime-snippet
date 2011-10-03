@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[directory? ${1:<str-path>}]]></content>
-      <tabTrigger>directory?</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>directory?</description>
-  </snippet>
-  

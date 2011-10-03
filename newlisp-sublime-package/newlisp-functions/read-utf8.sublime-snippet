@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[read-utf8 ${1:<int-file>}]]></content>
-      <tabTrigger>read-utf8</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>read-utf8</description>
-  </snippet>
-  

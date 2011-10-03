@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[callback ${1:<int-index>} ${2:<sym-function>}]]></content>
-      <tabTrigger>callback</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>callback</description>
-  </snippet>
-  

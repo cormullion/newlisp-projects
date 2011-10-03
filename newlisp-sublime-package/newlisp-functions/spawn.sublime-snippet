@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[spawn ${1:<sym>} ${2:<exp>}]]></content>
-      <tabTrigger>spawn</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>spawn</description>
-  </snippet>
-  

@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[title-case ${1:<str>} <[bool]>]]></content>
-      <tabTrigger>title-case</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>title-case</description>
-  </snippet>
-  

@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[net-peer ${1:<int-socket>}]]></content>
-      <tabTrigger>net-peer</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>net-peer</description>
-  </snippet>
-  

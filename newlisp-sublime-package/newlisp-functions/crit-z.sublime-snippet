@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[crit-z ${1:<num-probability>}]]></content>
-      <tabTrigger>crit-z</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>crit-z</description>
-  </snippet>
-  

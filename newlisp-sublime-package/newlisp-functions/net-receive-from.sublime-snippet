@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[net-receive-from ${1:<int-socket>} ${2:<int-max-size>}]]></content>
-      <tabTrigger>net-receive-from</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>net-receive-from</description>
-  </snippet>
-  

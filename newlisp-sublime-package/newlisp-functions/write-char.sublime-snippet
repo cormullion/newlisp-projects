@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[write-char ${1:<int-file>} ${2:<int-byte1>} [${3:<int-byte2>}  ]]]></content>
-      <tabTrigger>write-char</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>write-char</description>
-  </snippet>
-  

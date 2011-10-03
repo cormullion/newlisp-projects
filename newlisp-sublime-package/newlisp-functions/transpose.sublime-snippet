@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[transpose ${1:<matrix>}]]></content>
-      <tabTrigger>transpose</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>transpose</description>
-  </snippet>
-  

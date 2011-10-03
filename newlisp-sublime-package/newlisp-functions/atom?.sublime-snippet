@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[atom? ${1:<exp>}]]></content>
-      <tabTrigger>atom?</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>atom?</description>
-  </snippet>
-  

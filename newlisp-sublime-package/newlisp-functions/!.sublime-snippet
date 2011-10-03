@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[! ${1:<str-shell-command>} [${2:<int-flags>}]]]></content>
-      <tabTrigger>!</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>!</description>
-  </snippet>
-  

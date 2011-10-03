@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[filter ${1:<exp-predicate>} ${2:<exp-list>}]]></content>
-      <tabTrigger>filter</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>filter</description>
-  </snippet>
-  

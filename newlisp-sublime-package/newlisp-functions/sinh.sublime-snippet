@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[sinh ${1:<num-radians>}]]></content>
-      <tabTrigger>sinh</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>sinh</description>
-  </snippet>
-  

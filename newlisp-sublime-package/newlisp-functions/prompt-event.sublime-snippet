@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[prompt-event ${1:<sym-event-handler>} | ${2:<func-event-handler>}]]></content>
-      <tabTrigger>prompt-event</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>prompt-event</description>
-  </snippet>
-  

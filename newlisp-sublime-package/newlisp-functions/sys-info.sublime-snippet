@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[sys-info [${1:<int-idx>}]]]></content>
-      <tabTrigger>sys-info</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>sys-info</description>
-  </snippet>
-  

@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[bits ${1:<int>} [${2:<bool>}]]]></content>
-      <tabTrigger>bits</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>bits</description>
-  </snippet>
-  

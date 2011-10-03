@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[write-line [${1:<int-file>} [${2:<str>}]]]]></content>
-      <tabTrigger>write-line</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>write-line</description>
-  </snippet>
-  

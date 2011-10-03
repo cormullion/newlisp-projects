@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[invert ${1:<matrix>} [${2:<float-pivot>}]]]></content>
-      <tabTrigger>invert</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>invert</description>
-  </snippet>
-  

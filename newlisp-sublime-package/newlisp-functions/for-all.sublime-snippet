@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[for-all ${1:<func-condition>} ${2:<list>}]]></content>
-      <tabTrigger>for-all</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>for-all</description>
-  </snippet>
-  

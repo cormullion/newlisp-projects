@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[uuid [${1:<str-node>}]]]></content>
-      <tabTrigger>uuid</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>uuid</description>
-  </snippet>
-  

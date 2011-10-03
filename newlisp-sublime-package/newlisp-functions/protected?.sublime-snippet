@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[protected? ${1:<sym>}]]></content>
-      <tabTrigger>protected?</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>protected?</description>
-  </snippet>
-  

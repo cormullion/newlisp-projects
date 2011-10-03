@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[xml-parse ${1:<string-xml>} [${2:<int-options>} [${3:<sym-context>} [${4:<func-callback>}]]]]]></content>
-      <tabTrigger>xml-parse</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>xml-parse</description>
-  </snippet>
-  

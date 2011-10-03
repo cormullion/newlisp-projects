@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[put-url ${1:<str-url>} ${2:<str-content>} [${3:<str-option>}] [${4:<int-timeout>} [${5:<str-header>}]]]]></content>
-      <tabTrigger>put-url</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>put-url</description>
-  </snippet>
-  

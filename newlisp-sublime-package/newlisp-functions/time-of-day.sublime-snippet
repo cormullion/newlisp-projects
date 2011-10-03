@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[time-of-day]]></content>
-      <tabTrigger>time-of-day</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>time-of-day</description>
-  </snippet>
-  

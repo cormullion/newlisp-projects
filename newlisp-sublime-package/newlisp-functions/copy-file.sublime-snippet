@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[copy-file ${1:<str-from-name>} ${2:<str-to-name>}]]></content>
-      <tabTrigger>copy-file</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>copy-file</description>
-  </snippet>
-  

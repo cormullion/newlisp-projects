@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[rand ${1:<int-range>} [${2:<int-N>}]]]></content>
-      <tabTrigger>rand</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>rand</description>
-  </snippet>
-  

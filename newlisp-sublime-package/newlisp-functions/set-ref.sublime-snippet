@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[set-ref ${1:<exp-key>} ${2:<list>} ${3:<exp-replacement>} [${4:<func-compare>}]]]></content>
-      <tabTrigger>set-ref</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>set-ref</description>
-  </snippet>
-  

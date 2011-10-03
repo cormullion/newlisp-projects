@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[sub ${1:<num-1>} [${2:<num-2>}  ]]]></content>
-      <tabTrigger>sub</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>sub</description>
-  </snippet>
-  

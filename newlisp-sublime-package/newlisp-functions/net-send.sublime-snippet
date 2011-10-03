@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[net-send ${1:<int-socket>} ${2:<str-buffer>} [${3:<int-num-bytes>}]]]></content>
-      <tabTrigger>net-send</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>net-send</description>
-  </snippet>
-  

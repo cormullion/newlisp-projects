@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[acos ${1:<num>}]]></content>
-      <tabTrigger>acos</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>acos</description>
-  </snippet>
-  

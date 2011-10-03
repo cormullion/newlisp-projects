@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[net-packet ${1:<str-packet>}]]></content>
-      <tabTrigger>net-packet</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>net-packet</description>
-  </snippet>
-  

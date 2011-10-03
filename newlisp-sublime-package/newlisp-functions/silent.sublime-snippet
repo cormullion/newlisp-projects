@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[silent [${1:<exp-1>} [${2:<exp-2>}  ]]]]></content>
-      <tabTrigger>silent</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>silent</description>
-  </snippet>
-  

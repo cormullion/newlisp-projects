@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[utf8len ${1:<str>}]]></content>
-      <tabTrigger>utf8len</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>utf8len</description>
-  </snippet>
-  

@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[default ${1:<context>}]]></content>
-      <tabTrigger>default</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>default</description>
-  </snippet>
-  

@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[xfer-event ${1:<sym-event-handler>} | ${2:<func-event-handler>}]]></content>
-      <tabTrigger>xfer-event</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>xfer-event</description>
-  </snippet>
-  

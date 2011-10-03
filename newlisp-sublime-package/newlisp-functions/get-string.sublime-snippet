@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[get-string ${1:<int-address>}]]></content>
-      <tabTrigger>get-string</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>get-string</description>
-  </snippet>
-  

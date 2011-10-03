@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[null? ${1:<exp>}]]></content>
-      <tabTrigger>null?</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>null?</description>
-  </snippet>
-  

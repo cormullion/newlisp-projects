@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[flat ${1:<list>}]]></content>
-      <tabTrigger>flat</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>flat</description>
-  </snippet>
-  

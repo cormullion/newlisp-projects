@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[seek ${1:<int-file>} [${2:<int-position>}]]]></content>
-      <tabTrigger>seek</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>seek</description>
-  </snippet>
-  

@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[crit-chi2 ${1:<num-probability>} ${2:<num-df>}]]></content>
-      <tabTrigger>crit-chi2</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>crit-chi2</description>
-  </snippet>
-  

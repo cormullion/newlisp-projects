@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[irr ${1:<list-amounts>} [${2:<list-times>} [${3:<num-guess>}]]]]></content>
-      <tabTrigger>irr</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>irr</description>
-  </snippet>
-  

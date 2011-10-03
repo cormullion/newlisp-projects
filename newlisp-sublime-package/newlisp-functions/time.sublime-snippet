@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[time ${1:<exp>} [${2:<int-count>}]]></content>
-      <tabTrigger>time</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>time</description>
-  </snippet>
-  

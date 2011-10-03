@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[real-path [${1:<str-path>}]]]></content>
-      <tabTrigger>real-path</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>real-path</description>
-  </snippet>
-  

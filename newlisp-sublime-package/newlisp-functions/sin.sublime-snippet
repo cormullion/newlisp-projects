@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[sin ${1:<num-radians>}]]></content>
-      <tabTrigger>sin</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>sin</description>
-  </snippet>
-  

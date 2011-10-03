@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[nper ${1:<num-interest>} ${2:<num-pmt>} ${3:<num-pv>} [${4:<num-fv>} [${5:<int-type>}]]]]></content>
-      <tabTrigger>nper</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>nper</description>
-  </snippet>
-  

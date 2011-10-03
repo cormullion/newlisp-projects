@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[read-key]]></content>
-      <tabTrigger>read-key</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>read-key</description>
-  </snippet>
-  

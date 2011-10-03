@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[bayes-train ${1:<list-M1>} [${2:<list-M2>}  ] ${3:<sym-context-D>}]]></content>
-      <tabTrigger>bayes-train</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>bayes-train</description>
-  </snippet>
-  

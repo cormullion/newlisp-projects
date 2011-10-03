@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[det ${1:<matrix>} [${2:<float-pivot>}]]]></content>
-      <tabTrigger>det</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>det</description>
-  </snippet>
-  

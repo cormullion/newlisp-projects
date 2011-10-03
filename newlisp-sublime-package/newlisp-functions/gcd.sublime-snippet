@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[gcd ${1:<int-1>} [${2:<int-2>}  ]]]></content>
-      <tabTrigger>gcd</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>gcd</description>
-  </snippet>
-  

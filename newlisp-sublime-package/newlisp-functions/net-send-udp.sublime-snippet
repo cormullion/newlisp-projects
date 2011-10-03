@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[net-send-udp ${1:<str-remotehost>} ${2:<int-remoteport>} ${3:<str-buffer>} [${4:<bool>}]]]></content>
-      <tabTrigger>net-send-udp</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>net-send-udp</description>
-  </snippet>
-  

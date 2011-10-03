@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[read ${1:<int-file>} ${2:<sym-buffer>} ${3:<int-size>} [${4:<str-wait>}]]]></content>
-      <tabTrigger>read</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>read</description>
-  </snippet>
-  

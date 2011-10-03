@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[remove-dir ${1:<str-path>}]]></content>
-      <tabTrigger>remove-dir</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>remove-dir</description>
-  </snippet>
-  

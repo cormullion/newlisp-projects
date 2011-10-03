@@ -1,8 +1,0 @@
-{
-	"scope": "*",
-
-	"completions":
-	[
-		{ "trigger": "nl", "contents": "newLISP" }
-	]
-}

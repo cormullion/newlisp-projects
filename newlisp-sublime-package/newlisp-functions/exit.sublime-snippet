@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[exit [${1:<int>}]]]></content>
-      <tabTrigger>exit</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>exit</description>
-  </snippet>
-  

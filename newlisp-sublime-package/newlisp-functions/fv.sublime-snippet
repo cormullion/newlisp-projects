@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[fv ${1:<num-rate>} ${2:<num-nper>} ${3:<num-pmt>} ${4:<num-pv>} [${5:<int-type>}]]]></content>
-      <tabTrigger>fv</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>fv</description>
-  </snippet>
-  

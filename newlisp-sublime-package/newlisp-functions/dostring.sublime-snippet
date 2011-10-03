@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[dostring (${1:<sym>} ${2:<string>} [${3:<exp-break>}]) ${4:<body>}]]></content>
-      <tabTrigger>dostring</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>dostring</description>
-  </snippet>
-  

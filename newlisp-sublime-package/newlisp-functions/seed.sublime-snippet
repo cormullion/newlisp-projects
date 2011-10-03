@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[seed ${1:<int-seed>}]]></content>
-      <tabTrigger>seed</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>seed</description>
-  </snippet>
-  

@@ -1,4 +1,0 @@
-{
-	"cmd": ["newlisp", "", "$file"],
-	"selector": "source.newlisp"
-}

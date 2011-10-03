@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[factor ${1:<int>}]]></content>
-      <tabTrigger>factor</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>factor</description>
-  </snippet>
-  

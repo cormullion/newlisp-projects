@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[if-not ${1:<exp-condition>} ${2:<exp-1>} [${3:<exp-2>}]]]></content>
-      <tabTrigger>if-not</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>if-not</description>
-  </snippet>
-  

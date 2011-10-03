@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[unless ${1:<exp-condition>} ${2:<body>}]]></content>
-      <tabTrigger>unless</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>unless</description>
-  </snippet>
-  

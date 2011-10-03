@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[utf8 ${1:<str-unicode>}]]></content>
-      <tabTrigger>utf8</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>utf8</description>
-  </snippet>
-  

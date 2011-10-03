@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[inf? ${1:<float>}]]></content>
-      <tabTrigger>inf?</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>inf?</description>
-  </snippet>
-  

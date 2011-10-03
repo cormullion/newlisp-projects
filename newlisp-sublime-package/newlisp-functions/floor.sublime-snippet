@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[floor ${1:<number>}]]></content>
-      <tabTrigger>floor</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>floor</description>
-  </snippet>
-  

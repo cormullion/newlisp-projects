@@ -1,8 +1,0 @@
-
-  <snippet>
-      <content><![CDATA[def-new ${1:<sym-source>} [${2:<sym-target>}]]]></content>
-      <tabTrigger>def-new</tabTrigger>
-      <scope>source.newlisp</scope>
-      <description>def-new</description>
-  </snippet>
-  
