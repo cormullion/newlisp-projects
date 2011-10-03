@@ -4,64 +4,20 @@
 ;; @author cormullion
 ;; @description a port of John Gruber's Markdown to newLISP
 ;; @location http://unbalanced-parentheses.nfshost.com/
-;; @version of date 2010-07-10 22:20:13
+;; @version of date 2011-10-02 22:36:02
+;; version history: at the end
 ;; a port of John Gruber's Markdown.pl (http://daringfireball.net/markdown) script to newLISP...
 ;; see his original Perl script for explanations of the fearsome regexen and
 ;; byzantine logic, etc...
 ;; TODO:
-;;  the following Markdown tests fail:
+;;   the following Markdown tests fail:
 ;;   Inline HTML (Advanced) ... FAILED
 ;;   Links, reference style ... FAILED -- nested brackets 
 ;;   Links, shortcut references ... FAILED
 ;;   Markdown Documentation - Syntax ... FAILED
 ;;   Ordered and unordered lists ... FAILED -- a nested ordered list error
 ;;   parens in url : ![this is a stupid URL](http://example.com/(parens).jpg) see (Images.text)
-;;  Add: email address scrambling
-;;
-;; version 2011-09-16 16:31:29
-;; Changed to different hash routine. Profiling shows that hashing takes 40% of the execution time.
-;; Unfortunately this new version is only very slightly faster.
-;; Command-line arguments hack in previous version doesn't work.
-;;
-;; version 2011-08-18 15:04:40
-;; various fixes, and added hack for running this from the command-line:
-;;     echo "hi there"     | newlisp markdown.lsp 
-;;     echo "hello world"  | markdown.lsp 
-;;     cat file.text       | newlisp markdown.lsp
-;;
-;; version 2010-11-14 17:34:52
-;; some problems in ustring. Probably remove it one day, as it's non standard...
-;;
-;; version 2010-10-14 18:41:38
-;; added code to work round PCRE crash in (protect ...
-;;
-;; version date 2010-07-10 22:20:25
-;; modified call to 'read' since lutz has changed it
-;;
-;; version date 2009-11-16 22:10:10
-;; fixed bug in tokenize.html
-;;
-;; version date 2008-10-08 18:44:46
-;; changed nth-set to setf to be version-10 ready. 
-;; This means that now this script will NOT work with
-;; earlier versions of newLISP!!!!!!!!!!!
-;; requires Nestor if you want source code colouring...
-;;
-;; version date 2008-08-08 16:54:56
-;; changed (unless to (if (not ... :(
-;;
-;; version date 2008-07-20 14:!2:29
-;; added hex-str-to-unicode-char ustring
-;;
-;; version date 2008-03-07 15:36:09
-;; fixed load error
-;;
-;; version date 2007-11-17 16:20:57
-;; added syntax colouring module
-;; 
-;; version date  2007-11-14 09:19:42
-;; removed reliance on dostring for compatibility with 9.1
-;; author: cormullion
+;;   Add: email address scrambling
 
 (context 'Hash)
 (define HashTable:HashTable)
@@ -171,10 +127,10 @@
               (replace [text](?<=.)</?code>(?=.)[/text] new-text (HashTable {`}) 0)
               (replace {\*} new-text (HashTable {*}) 0)
               (replace {_} new-text (HashTable {_} ) 0))
-              ; 'text
-              (if  within-tag-attributes
-                   (set 'new-text (last pair))
-                   (set 'new-text (encode-backslash-escapes (last pair)))))
+             ; 'text
+             (if  within-tag-attributes
+                  (set 'new-text (last pair))
+                  (set 'new-text (encode-backslash-escapes (last pair)))))
         (setf (temp $idx) (list (first pair) new-text)))
   ; return as text
   (join (map last temp))))
@@ -193,7 +149,7 @@
   (replace "{"  s   (HashTable "{") 0)
   (replace {\[} s   (HashTable {[}) 0)
   (replace {\]} s   (HashTable {]}) 0)
-  (replace {\\} s   (HashTable {\}) 0))
+  (replace {\\} s   (HashTable "\\") 0))
 
 (define (code-spans s)
   (replace  
@@ -208,7 +164,7 @@
 
 (define (images txt)
  (let ((alt-text {})
-       (url {} )
+       (url {})
        (title {})
        (ref-regex    {(!\[(.*?)\][ ]?(?:\n[ ]*)?\[(.*?)\])})
        (inline-regex {(!\[(.*?)\]\([ \t]*<?(\S+?)>?[ \t]*((['"])(.*?)\5[ \t]*)?\))})
@@ -674,4 +630,50 @@
    (println (markdown (join *stdin* "\n")))
    (exit))
 [/text]
+
+;; version 2011-09-16 16:31:29
+;;   Changed to different hash routine. Profiling shows that hashing takes 40% of the execution time.
+;;   Unfortunately this new version is only very slightly faster.
+;;   Command-line arguments hack in previous version doesn't work.
+;;
+;; version 2011-08-18 15:04:40
+;;   various fixes, and added hack for running this from the command-line:
+;;     echo "hi there"     | newlisp markdown.lsp 
+;;     echo "hello world"  | markdown.lsp 
+;;     cat file.text       | newlisp markdown.lsp
+;;
+;; version 2010-11-14 17:34:52
+;;    some problems in ustring. Probably remove it one day, as it's non standard...
+;;
+;; version 2010-10-14 18:41:38
+;;    added code to work round PCRE crash in (protect ...
+;;
+;; version date 2010-07-10 22:20:25
+;;    modified call to 'read' since lutz has changed it
+;;
+;; version date 2009-11-16 22:10:10
+;;    fixed bug in tokenize.html
+;;
+;; version date 2008-10-08 18:44:46
+;;    changed nth-set to setf to be version-10 ready. 
+;;    This means that now this script will NOT work with
+;;    earlier versions of newLISP!!!!!!!!!!!
+;;    requires Nestor if you want source code colouring...
+;;
+;; version date 2008-08-08 16:54:56
+;;    changed (unless to (if (not ... :(
+;;
+;; version date 2008-07-20 14:!2:29
+;;    added hex-str-to-unicode-char ustring
+;;
+;; version date 2008-03-07 15:36:09
+;;    fixed load error
+;;
+;; version date 2007-11-17 16:20:57
+;;    added syntax colouring module
+;; 
+;; version date  2007-11-14 09:19:42
+;;    removed reliance on dostring for compatibility with 9.1
+
+
 ; eof
