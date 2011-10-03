@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[set-locale [${1:<str-locale>} [${2:<int-category>}]]]]></content>
+      <tabTrigger>set-locale</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>set-locale</description>
+  </snippet>
+  

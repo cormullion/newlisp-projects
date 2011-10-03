@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[dolist (${1:<sym>} ${2:<list>} [${3:<exp-break>}]) ${4:<body>}]]></content>
+      <tabTrigger>dolist</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>dolist</description>
+  </snippet>
+  

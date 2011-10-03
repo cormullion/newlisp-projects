@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[join ${1:<list-of-strings>} [${2:<str-joint>} [${3:<bool-trail-joint>}]]]]></content>
+      <tabTrigger>join</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>join</description>
+  </snippet>
+  

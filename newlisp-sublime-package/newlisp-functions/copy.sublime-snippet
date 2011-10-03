@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[copy ${1:<exp>}]]></content>
+      <tabTrigger>copy</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>copy</description>
+  </snippet>
+  

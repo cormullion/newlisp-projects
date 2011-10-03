@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[primitive? ${1:<exp>}]]></content>
+      <tabTrigger>primitive?</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>primitive?</description>
+  </snippet>
+  

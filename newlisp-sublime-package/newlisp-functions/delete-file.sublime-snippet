@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[delete-file ${1:<str-url>}]]></content>
+      <tabTrigger>delete-file</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>delete-file</description>
+  </snippet>
+  

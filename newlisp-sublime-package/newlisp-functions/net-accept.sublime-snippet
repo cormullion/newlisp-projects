@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[net-accept ${1:<int-socket>}]]></content>
+      <tabTrigger>net-accept</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>net-accept</description>
+  </snippet>
+  

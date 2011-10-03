@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[cosh ${1:<num-radians>}]]></content>
+      <tabTrigger>cosh</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>cosh</description>
+  </snippet>
+  

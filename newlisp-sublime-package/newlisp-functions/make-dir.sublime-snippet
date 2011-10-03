@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[make-dir ${1:<str-dir-name>} [${2:<int-mode>}]]]></content>
+      <tabTrigger>make-dir</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>make-dir</description>
+  </snippet>
+  

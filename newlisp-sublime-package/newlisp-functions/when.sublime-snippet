@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[when ${1:<exp-condition>} ${2:<body>}]]></content>
+      <tabTrigger>when</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>when</description>
+  </snippet>
+  

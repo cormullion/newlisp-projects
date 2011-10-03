@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[throw-error ${1:<exp>}]]></content>
+      <tabTrigger>throw-error</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>throw-error</description>
+  </snippet>
+  

@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[int ${1:<exp>} [${2:<exp-default>} [${3:<int-base>}]]]]></content>
+      <tabTrigger>int</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>int</description>
+  </snippet>
+  

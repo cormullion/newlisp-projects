@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[send ${1:<int-pid>} ${2:<exp>}]]></content>
+      <tabTrigger>send</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>send</description>
+  </snippet>
+  

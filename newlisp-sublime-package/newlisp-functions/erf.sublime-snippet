@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[erf ${1:<num>}]]></content>
+      <tabTrigger>erf</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>erf</description>
+  </snippet>
+  

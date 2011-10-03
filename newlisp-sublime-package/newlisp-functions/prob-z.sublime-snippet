@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[prob-z ${1:<num-z>}]]></content>
+      <tabTrigger>prob-z</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>prob-z</description>
+  </snippet>
+  

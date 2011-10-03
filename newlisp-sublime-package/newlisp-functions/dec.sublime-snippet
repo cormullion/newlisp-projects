@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[dec ${1:<place>} [${2:<num>}]]]></content>
+      <tabTrigger>dec</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>dec</description>
+  </snippet>
+  

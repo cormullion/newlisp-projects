@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[import ${1:<str-lib-name>} ${2:<str-function-name>} ["cdecl"]]]></content>
+      <tabTrigger>import</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>import</description>
+  </snippet>
+  

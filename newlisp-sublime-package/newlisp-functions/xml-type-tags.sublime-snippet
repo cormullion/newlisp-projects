@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[xml-type-tags [${1:<exp-text-tag>} ${2:<exp-cdata-tag>} ${3:<exp-comment-tag>} ${4:<exp-element-tags>}]]]></content>
+      <tabTrigger>xml-type-tags</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>xml-type-tags</description>
+  </snippet>
+  

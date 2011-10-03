@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[sequence ${1:<num-start>} ${2:<num-end>} [${3:<num-step>}]]]></content>
+      <tabTrigger>sequence</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>sequence</description>
+  </snippet>
+  

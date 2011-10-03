@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[list ${1:<exp-1>} [${2:<exp-2>}  ]]]></content>
+      <tabTrigger>list</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>list</description>
+  </snippet>
+  

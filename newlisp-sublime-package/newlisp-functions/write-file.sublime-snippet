@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[write-file ${1:<str-file-name>} ${2:<str-buffer>}]]></content>
+      <tabTrigger>write-file</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>write-file</description>
+  </snippet>
+  

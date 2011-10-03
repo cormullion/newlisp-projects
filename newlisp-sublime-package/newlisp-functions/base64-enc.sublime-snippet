@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[base64-enc ${1:<str>}]]></content>
+      <tabTrigger>base64-enc</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>base64-enc</description>
+  </snippet>
+  

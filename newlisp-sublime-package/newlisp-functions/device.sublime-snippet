@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[device [${1:<int-handle>}]]]></content>
+      <tabTrigger>device</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>device</description>
+  </snippet>
+  

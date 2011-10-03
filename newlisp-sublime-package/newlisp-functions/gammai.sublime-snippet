@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[gammai ${1:<num-a>} ${2:<num-b>}]]></content>
+      <tabTrigger>gammai</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>gammai</description>
+  </snippet>
+  

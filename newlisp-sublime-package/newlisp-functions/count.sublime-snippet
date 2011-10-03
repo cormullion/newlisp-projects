@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[count ${1:<list-1>} ${2:<list-2>}]]></content>
+      <tabTrigger>count</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>count</description>
+  </snippet>
+  

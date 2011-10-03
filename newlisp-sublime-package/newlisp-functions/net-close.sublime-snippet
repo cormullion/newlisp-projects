@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[net-close ${1:<int-socket>} [${2:<true>}]]]></content>
+      <tabTrigger>net-close</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>net-close</description>
+  </snippet>
+  

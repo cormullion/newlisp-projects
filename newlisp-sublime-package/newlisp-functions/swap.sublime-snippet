@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[swap ${1:<place-1>} ${2:<place-2>}]]></content>
+      <tabTrigger>swap</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>swap</description>
+  </snippet>
+  

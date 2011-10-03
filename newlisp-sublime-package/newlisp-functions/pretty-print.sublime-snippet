@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[pretty-print [${1:<int-length>} [${2:<str-tab>} [${3:<str-fp-format>}]]]]></content>
+      <tabTrigger>pretty-print</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>pretty-print</description>
+  </snippet>
+  

@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[prefix ${1:<sym>}]]></content>
+      <tabTrigger>prefix</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>prefix</description>
+  </snippet>
+  

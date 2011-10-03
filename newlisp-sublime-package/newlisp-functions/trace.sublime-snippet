@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[trace [${1:<bool>}]]]></content>
+      <tabTrigger>trace</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>trace</description>
+  </snippet>
+  

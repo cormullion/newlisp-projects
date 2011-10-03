@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[regex ${1:<str-pattern>} ${2:<str-text>} [${3:<int-option>} [${4:<int-offset>}]]]]></content>
+      <tabTrigger>regex</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>regex</description>
+  </snippet>
+  

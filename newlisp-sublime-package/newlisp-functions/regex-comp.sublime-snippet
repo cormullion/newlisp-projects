@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[regex-comp ${1:<str-pattern>} [${2:<int-option>}]]]></content>
+      <tabTrigger>regex-comp</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>regex-comp</description>
+  </snippet>
+  

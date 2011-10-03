@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[unpack ${1:<str-format>} ${2:<str-addr-packed>}]]></content>
+      <tabTrigger>unpack</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>unpack</description>
+  </snippet>
+  

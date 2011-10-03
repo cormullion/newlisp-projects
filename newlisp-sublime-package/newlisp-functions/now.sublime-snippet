@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[now [${1:<int-minutes-offset>} [${2:<int-index>}]]]]></content>
+      <tabTrigger>now</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>now</description>
+  </snippet>
+  

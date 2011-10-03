@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[float? ${1:<exp>}]]></content>
+      <tabTrigger>float?</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>float?</description>
+  </snippet>
+  

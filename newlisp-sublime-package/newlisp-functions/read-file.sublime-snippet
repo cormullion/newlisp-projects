@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[read-file ${1:<str-file-name>}]]></content>
+      <tabTrigger>read-file</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>read-file</description>
+  </snippet>
+  

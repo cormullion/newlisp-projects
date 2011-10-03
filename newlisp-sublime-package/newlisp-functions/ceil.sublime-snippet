@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[ceil ${1:<number>}]]></content>
+      <tabTrigger>ceil</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>ceil</description>
+  </snippet>
+  

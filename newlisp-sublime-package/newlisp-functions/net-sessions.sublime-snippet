@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[net-sessions]]></content>
+      <tabTrigger>net-sessions</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>net-sessions</description>
+  </snippet>
+  

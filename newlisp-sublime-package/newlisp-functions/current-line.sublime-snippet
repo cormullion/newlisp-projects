@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[current-line]]></content>
+      <tabTrigger>current-line</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>current-line</description>
+  </snippet>
+  

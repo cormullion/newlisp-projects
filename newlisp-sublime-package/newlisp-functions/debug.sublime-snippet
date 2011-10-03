@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[debug ${1:<func>}]]></content>
+      <tabTrigger>debug</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>debug</description>
+  </snippet>
+  

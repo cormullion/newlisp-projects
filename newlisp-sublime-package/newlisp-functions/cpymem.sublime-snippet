@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[cpymem ${1:<int-from-address>} ${2:<int-to-address>} ${3:<int-bytes>}]]></content>
+      <tabTrigger>cpymem</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>cpymem</description>
+  </snippet>
+  

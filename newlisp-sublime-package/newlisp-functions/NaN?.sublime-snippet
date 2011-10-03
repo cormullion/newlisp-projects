@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[NaN? ${1:<float>}]]></content>
+      <tabTrigger>NaN?</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>NaN?</description>
+  </snippet>
+  

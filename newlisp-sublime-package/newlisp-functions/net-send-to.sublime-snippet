@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[net-send-to ${1:<str-remotehost>} ${2:<int-remoteport>} ${3:<str-buffer>} ${4:<int-socket>}]]></content>
+      <tabTrigger>net-send-to</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>net-send-to</description>
+  </snippet>
+  

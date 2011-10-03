@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[xml-error]]></content>
+      <tabTrigger>xml-error</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>xml-error</description>
+  </snippet>
+  

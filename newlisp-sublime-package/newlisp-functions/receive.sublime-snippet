@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[receive ${1:<int-pid>} ${2:<sym-message>}]]></content>
+      <tabTrigger>receive</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>receive</description>
+  </snippet>
+  

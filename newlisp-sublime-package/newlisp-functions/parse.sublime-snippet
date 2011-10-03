@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[parse ${1:<str-data>} [${2:<str-break>} [${3:<int-option>}]]]]></content>
+      <tabTrigger>parse</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>parse</description>
+  </snippet>
+  

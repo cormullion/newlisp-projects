@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[flt ${1:<number>}]]></content>
+      <tabTrigger>flt</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>flt</description>
+  </snippet>
+  

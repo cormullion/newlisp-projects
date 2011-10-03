@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[net-receive ${1:<int-socket>} ${2:<sym-buffer>} ${3:<int-max-bytes>} [${4:<wait-string>}]]]></content>
+      <tabTrigger>net-receive</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>net-receive</description>
+  </snippet>
+  

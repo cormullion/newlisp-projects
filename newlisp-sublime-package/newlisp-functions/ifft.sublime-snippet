@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[ifft ${1:<list-num>}]]></content>
+      <tabTrigger>ifft</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>ifft</description>
+  </snippet>
+  

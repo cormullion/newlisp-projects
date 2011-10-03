@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[ref-all ${1:<exp-key>} ${2:<list>} [${3:<func-compare>} [true]]]]></content>
+      <tabTrigger>ref-all</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>ref-all</description>
+  </snippet>
+  

@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[inc ${1:<place>} [${2:<num>}]]]></content>
+      <tabTrigger>inc</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>inc</description>
+  </snippet>
+  

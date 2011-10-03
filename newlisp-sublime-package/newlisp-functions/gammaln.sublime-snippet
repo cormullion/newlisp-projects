@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[gammaln ${1:<num-x>}]]></content>
+      <tabTrigger>gammaln</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>gammaln</description>
+  </snippet>
+  

@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[encrypt ${1:<str-source>} ${2:<str-pad>}]]></content>
+      <tabTrigger>encrypt</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>encrypt</description>
+  </snippet>
+  

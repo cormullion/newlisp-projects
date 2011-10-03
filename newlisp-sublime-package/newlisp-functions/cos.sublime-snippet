@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[cos ${1:<num-radians>}]]></content>
+      <tabTrigger>cos</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>cos</description>
+  </snippet>
+  

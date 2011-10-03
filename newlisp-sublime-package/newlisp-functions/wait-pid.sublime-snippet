@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[wait-pid ${1:<int-pid>} [${2:<int-options>} | ${3:<tt>}nil${4:</tt>}]]]></content>
+      <tabTrigger>wait-pid</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>wait-pid</description>
+  </snippet>
+  

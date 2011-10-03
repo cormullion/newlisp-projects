@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[pipe]]></content>
+      <tabTrigger>pipe</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>pipe</description>
+  </snippet>
+  

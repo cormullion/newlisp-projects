@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[read-char ${1:<int-file>}]]></content>
+      <tabTrigger>read-char</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>read-char</description>
+  </snippet>
+  

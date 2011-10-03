@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[unify ${1:<exp-1>} ${2:<exp-2>} [${3:<list-env>}]]]></content>
+      <tabTrigger>unify</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>unify</description>
+  </snippet>
+  

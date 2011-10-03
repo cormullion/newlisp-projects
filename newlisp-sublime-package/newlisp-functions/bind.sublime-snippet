@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[bind ${1:<list-variable-associations>} [${2:<bool-eval>}]]]></content>
+      <tabTrigger>bind</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>bind</description>
+  </snippet>
+  

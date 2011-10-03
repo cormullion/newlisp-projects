@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[npv ${1:<num-interest>} ${2:<list-values>}]]></content>
+      <tabTrigger>npv</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>npv</description>
+  </snippet>
+  

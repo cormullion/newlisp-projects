@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[term ${1:<symbol>}]]></content>
+      <tabTrigger>term</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>term</description>
+  </snippet>
+  

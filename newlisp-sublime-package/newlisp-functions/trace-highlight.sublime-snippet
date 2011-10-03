@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[trace-highlight ${1:<str-pre>} ${2:<str-post>} [${3:<str-header>} ${4:<str-footer>}]]]></content>
+      <tabTrigger>trace-highlight</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>trace-highlight</description>
+  </snippet>
+  

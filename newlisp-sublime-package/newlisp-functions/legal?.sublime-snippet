@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[legal? ${1:<str>}]]></content>
+      <tabTrigger>legal?</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>legal?</description>
+  </snippet>
+  

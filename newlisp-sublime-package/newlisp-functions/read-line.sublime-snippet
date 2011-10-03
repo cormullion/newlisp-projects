@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[read-line [${1:<int-file>}]]]></content>
+      <tabTrigger>read-line</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>read-line</description>
+  </snippet>
+  

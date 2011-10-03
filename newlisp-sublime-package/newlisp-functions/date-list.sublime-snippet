@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[date-list ${1:<int-seconds>} [${2:<int-index>}]]]></content>
+      <tabTrigger>date-list</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>date-list</description>
+  </snippet>
+  

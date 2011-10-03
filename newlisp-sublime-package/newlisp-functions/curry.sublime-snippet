@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[curry ${1:<func>} ${2:<exp>}]]></content>
+      <tabTrigger>curry</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>curry</description>
+  </snippet>
+  

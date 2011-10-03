@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[search ${1:<int-file>} ${2:<str-search>} [${3:<bool-flag>} [${4:<int-options>}]]]]></content>
+      <tabTrigger>search</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>search</description>
+  </snippet>
+  

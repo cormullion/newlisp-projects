@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[max ${1:<num-1>} [${2:<num-2>}  ]]]></content>
+      <tabTrigger>max</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>max</description>
+  </snippet>
+  

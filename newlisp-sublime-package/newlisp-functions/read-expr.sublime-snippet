@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[read-expr ${1:<str-source>} [${2:<sym-context>} [${3:<exp-error>} [${4:<int-offset>}]]]]]></content>
+      <tabTrigger>read-expr</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>read-expr</description>
+  </snippet>
+  

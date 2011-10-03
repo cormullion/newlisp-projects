@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[apply ${1:<func list>} [${2:<int-reduce>}]]]></content>
+      <tabTrigger>apply</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>apply</description>
+  </snippet>
+  

@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[exists ${1:<func-condition>} ${2:<list>}]]></content>
+      <tabTrigger>exists</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>exists</description>
+  </snippet>
+  

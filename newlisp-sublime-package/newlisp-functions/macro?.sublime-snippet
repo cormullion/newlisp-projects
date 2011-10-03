@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[macro? ${1:<exp>}]]></content>
+      <tabTrigger>macro?</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>macro?</description>
+  </snippet>
+  

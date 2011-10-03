@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[array-list ${1:<array>}]]></content>
+      <tabTrigger>array-list</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>array-list</description>
+  </snippet>
+  

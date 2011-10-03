@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[fn (${1:<list-parameters>}) ${2:<exp-body>}]]></content>
+      <tabTrigger>fn</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>fn</description>
+  </snippet>
+  

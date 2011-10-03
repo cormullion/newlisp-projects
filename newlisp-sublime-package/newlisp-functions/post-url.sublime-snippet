@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[post-url ${1:<str-url>} ${2:<str-content>} [${3:<str-content-type>} [${4:<str-option>}] [${5:<int-timeout>} [ ${6:<str-header>}]]]]]></content>
+      <tabTrigger>post-url</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>post-url</description>
+  </snippet>
+  

@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[date-parse ${1:<str-date>} ${2:<str-format>}]]></content>
+      <tabTrigger>date-parse</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>date-parse</description>
+  </snippet>
+  

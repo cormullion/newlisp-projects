@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[number? ${1:<exp>}]]></content>
+      <tabTrigger>number?</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>number?</description>
+  </snippet>
+  

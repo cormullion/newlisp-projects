@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[self [${1:<int-index>}  ]]]></content>
+      <tabTrigger>self</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>self</description>
+  </snippet>
+  

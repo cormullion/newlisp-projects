@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[unique ${1:<list>}]]></content>
+      <tabTrigger>unique</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>unique</description>
+  </snippet>
+  

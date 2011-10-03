@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[lower-case ${1:<str>}]]></content>
+      <tabTrigger>lower-case</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>lower-case</description>
+  </snippet>
+  

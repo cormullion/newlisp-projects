@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[crc32 ${1:<str-data>}]]></content>
+      <tabTrigger>crc32</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>crc32</description>
+  </snippet>
+  

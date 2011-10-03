@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[net-receive-udp ${1:<int-port>} ${2:<int-maxsize>} [${3:<int-microsec>} [${4:<str-addr-if>}]]]]></content>
+      <tabTrigger>net-receive-udp</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>net-receive-udp</description>
+  </snippet>
+  

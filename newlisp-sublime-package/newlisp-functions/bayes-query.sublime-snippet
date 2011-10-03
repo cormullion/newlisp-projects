@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[bayes-query ${1:<list-L>} ${2:<context-D>} [${3:<bool-chain>} [${4:<bool-probs>}]]]]></content>
+      <tabTrigger>bayes-query</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>bayes-query</description>
+  </snippet>
+  

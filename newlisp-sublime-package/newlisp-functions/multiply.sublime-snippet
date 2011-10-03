@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[multiply ${1:<matrix-A>} ${2:<matrix-B>}]]></content>
+      <tabTrigger>multiply</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>multiply</description>
+  </snippet>
+  

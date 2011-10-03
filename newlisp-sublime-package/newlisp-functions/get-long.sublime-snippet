@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[get-long ${1:<int-address>}]]></content>
+      <tabTrigger>get-long</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>get-long</description>
+  </snippet>
+  

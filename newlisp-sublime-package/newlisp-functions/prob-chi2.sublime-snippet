@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[prob-chi2 ${1:<num-chi2>} ${2:<num-df>}]]></content>
+      <tabTrigger>prob-chi2</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>prob-chi2</description>
+  </snippet>
+  

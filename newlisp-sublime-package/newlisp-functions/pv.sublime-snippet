@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[pv ${1:<num-int>} ${2:<num-nper>} ${3:<num-pmt>} [${4:<num-fv>} [${5:<int-type>}]]]]></content>
+      <tabTrigger>pv</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>pv</description>
+  </snippet>
+  

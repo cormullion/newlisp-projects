@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[asinh ${1:<num-radians>}]]></content>
+      <tabTrigger>asinh</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>asinh</description>
+  </snippet>
+  

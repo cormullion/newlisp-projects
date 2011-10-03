@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[dotree (${1:<sym>} ${2:<sym-context>} [${3:<bool>}]) ${4:<body>}]]></content>
+      <tabTrigger>dotree</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>dotree</description>
+  </snippet>
+  

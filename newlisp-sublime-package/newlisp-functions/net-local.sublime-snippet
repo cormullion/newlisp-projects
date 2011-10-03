@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[net-local ${1:<int-socket>}]]></content>
+      <tabTrigger>net-local</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>net-local</description>
+  </snippet>
+  

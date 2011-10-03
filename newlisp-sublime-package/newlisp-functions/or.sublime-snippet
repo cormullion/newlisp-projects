@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[or ${1:<exp-1>} [${2:<exp-2>}  ]]]></content>
+      <tabTrigger>or</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>or</description>
+  </snippet>
+  

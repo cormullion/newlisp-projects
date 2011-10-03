@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[close ${1:<int-file>}]]></content>
+      <tabTrigger>close</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>close</description>
+  </snippet>
+  

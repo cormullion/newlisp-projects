@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[file? ${1:<str-path-name>}]]></content>
+      <tabTrigger>file?</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>file?</description>
+  </snippet>
+  

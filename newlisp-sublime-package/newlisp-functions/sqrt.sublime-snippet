@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[sqrt ${1:<num>}]]></content>
+      <tabTrigger>sqrt</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>sqrt</description>
+  </snippet>
+  

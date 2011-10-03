@@ -1,0 +1,8 @@
+
+  <snippet>
+      <content><![CDATA[binomial ${1:<int-n>} ${2:<int-k>} ${3:<float-p>}]]></content>
+      <tabTrigger>binomial</tabTrigger>
+      <scope>source.newlisp</scope>
+      <description>binomial</description>
+  </snippet>
+  
