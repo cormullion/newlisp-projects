@@ -51,4 +51,6 @@
 
 (println "\n" {all tests completed})
 
+(println (Nlex:parse-newlisp  "(+ 2 2)"))
+
 (exit)
