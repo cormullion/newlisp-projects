@@ -2,7 +2,7 @@
 
 ;; @module IRC
 ;; @description a basic irc library
-;; @version early alpha! 0.1 2011-10-31 14:21:26
+;; @version early alpha! 0.1 2013-01-02 20:11:22
 ;; @author cormullion
 ;; Usage:
 ;; (IRC:init "newlithper") ; a username/nick (not that one obviously :-)
@@ -23,6 +23,11 @@
 (define (register-callback callback-name callback-function)
     (println {registering callback for } callback-name { : } (sym (term callback-function) (prefix callback-function)))
     (push (list callback-name (sym (term callback-function) (prefix callback-function))) Icallbacks)) 
+
+(define (deregister-callback callback-name)
+    (println {deregistering callback for } callback-name)
+    (setf (assoc "idle-event" Icallbacks) nil)
+    (println {current callbacks: } Icallbacks)) 
 
 (define (do-callback callback-name data)
    (when (set 'func (lookup callback-name Icallbacks)) ; find first callback
@@ -143,7 +148,7 @@
 (define (process-ctcp username target message)
     (cond
         ((starts-with message "\001VERSION\001")
-            (net-send Iserver (format "NOTICE %s :\001VERSION %s\001\r\n" username version)))
+            (net-send Iserver (format "NOTICE %s :\001VERSION %s\001\r\n" username message)))
         ((starts-with message "\001PING")
             (set 'data (first (rest (clean empty? (parse message { } 0)))))
             (set 'data (trim data "\001" "\001"))
@@ -212,3 +217,22 @@
 
 ; end of IRC code
 
+[text]
+
+simple bot code:
+(load (string (env {HOME}) {/projects/programming/newlisp-projects/irc.lsp}))
+(context 'BOT)
+(define bot-name "bot")
+(define (join-channel data)
+		(println {in BOT:join-channel with data: } data))
+(define (process-message data)
+        ????)
+(IRC:register-callback "join-channel"    'join-channel) 
+(IRC:register-callback "channel-message" 'process-message)
+(IRC:register-callback "idle-event"      'do-idle-event)
+(IRC:register-callback "send-to-server"  'do-send-event)
+(IRC:init bot-name)
+(IRC:connect "irc.freenode.net" 6667)
+(IRC:join-channel {#newlisp})
+(IRC:read-irc-loop)
+[/text]
