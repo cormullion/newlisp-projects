@@ -210,7 +210,8 @@
     (register-callback "send-to-server"  'print-outgoing-message)
     (while Iconnected
         (while (zero? (peek 0))
-            (read-irc))
+            (read-irc)
+            (sleep 1000))
         (send-to-server (string (read-line 0))))
     (println {finished session } (date))
     (exit))
