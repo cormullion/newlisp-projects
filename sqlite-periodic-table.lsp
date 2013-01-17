@@ -175,32 +175,12 @@
 (query "select * from t1  order by discovered")
 (query "select element,earth_crust, discovered from t1 where discovered < 1900 and earth_crust > 2 order by discovered")
 (query "select element,symbol,atomic_weight from t1  where symbol like 'A%' order by element")
-
-(define (select-query columns table where)
-  ; columns is list of columns wanted
-  (let (
-      (sql-query (string {select } (join columns {,}) { from } table { } where {}))
-      (sql-results '())
-    )
-    (set 'sql-results (sql3:sql sql-query))))
-    
-(set 'required-columns '("element"   "symbol"))
-(set 'results (select-query  required-columns "t1"))
-(unless (list? results) (exit))
-(dolist (row results)
-  (dolist (col row)
-    (push col results -1))
-)
-
-(println results)
-
 (query "select * from t1  where mp > 3000") 
 (query "select * from t1  where bp < mp ")
 (query "select * from t1  order by random() limit 10 ")
 (query "select element,atomic_weight from t1 where element like '%en' order by random() limit 30")
 (query "select * from t1 order by symbol  limit 1 offset 2")
-(query "select name,bp from t1 where 'bp' > 5000 order by bp")
-(query "select avg(bp) from t1")
-(query "select * from t1  where name like '%en' and 'bp' > 10")
+(query "select name,bp from t1 where bp > 5000 order by bp")
+(query "select * from t1  where name like '%en' and bp > 10")
 (query "select * from t1  where name like '%en'")
 (query "select * from t1  where element like '%ium'")
