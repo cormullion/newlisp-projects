@@ -1,0 +1,124 @@
+#forecast p {
+	margin: 2px;
+}
+
+#forecast div {
+	float: left;
+	display: inline;
+}
+
+#today p {
+	margin: 2px;
+}
+
+body {
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	color: rgb(255, 255, 255);
+	font-family: Helvetica, sans-serif;
+	background-attachment: fixed;
+	background-image: url(http://daycaster.org/otteryweather/linen.jpg);
+}
+
+.footer {
+	margin-left: 2px;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	margin-top: 5pt;
+	font-size: 5pt;
+}
+
+#highlowcurrently {
+	text-align: right;
+	right: 220px;
+	top: 30px;
+	position: absolute;
+}
+
+#bigtemperature {
+	right: 70px;
+	top: 0px;
+	font-size: 60pt;
+	position: absolute;
+}
+
+#precipitation {
+	font-size: 11pt;
+	float: right;
+	display: inline;
+	text-align: center;
+}
+
+#humidity {
+	font-size: 11pt;
+	float: right;
+	display: inline;
+	text-align: center;
+}
+
+#pressure p {
+	margin: 2px;
+}
+
+#visibility p {
+	margin: 2px;
+}
+
+#precipitation p {
+	margin: 2px;
+}
+
+#humidity p {
+	margin: 2px;
+}
+
+#placename {
+	font-size: 26pt;
+	float: left;
+	margin: 3px;
+}
+
+#pressure {
+	font-size: 11pt;
+	float: left;
+	text-align: center;
+}
+
+#visibility {
+	font-size: 11pt;
+	float: left;
+	text-align: center;
+}
+
+#forecast {
+	clear: both;
+	text-align: center;
+	margin: 6px;
+}
+
+#footer {
+	text-align: center;
+	clear: both;
+	margin: 20px;
+}
+
+#weathersummary {
+	font-size: 20pt;
+	text-align: center;
+}
+
+#time {
+	clear: both;
+	text-align: center;
+}
+
+#bigtime {
+	font-size: 40pt;
+	margin: 0pt;
+}
+
+#date {
+	font-size: 12pt;
+}
+
