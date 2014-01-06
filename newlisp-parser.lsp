@@ -102,12 +102,10 @@
   (let ((res '() number-as-string ""))
      (set 'number-as-string (join (read-number-scanner (list c))))
      (cond
+       ; the order is important, apparently
        ; literal bignum, ending with "L"
        ((ends-with number-as-string "L")
                 (set 'res  (list 'BigintLit (bigint number-as-string))))
-       ; implicit bignum, interpreted by newLISP as a bigint
-       ((> (abs (bigint number-as-string) 9223372036854775807))
-                (set 'res  (list 'Bigint (bigint number-as-string))))
        ; try hex
        ((starts-with (lower-case number-as-string) "0x")
                 (set 'res  (list 'Hex number-as-string)))
@@ -123,6 +121,9 @@
              (> (length number-as-string) 1)
              (empty? (difference (explode number-as-string) (explode "01234567"))))
                 (set 'res (list 'Octal number-as-string)))
+       ; implicit bignum, interpreted by newLISP as a bigint
+       ((> (abs (bigint number-as-string) 9223372036854775807))
+                (set 'res  (list 'Bigint (bigint number-as-string))))
        ; perhaps an integer?  019 is read as 19 ...
        ((integer? (int number-as-string 0 10))
                 (set 'res  (list 'Integer (int number-as-string 0 10))))
