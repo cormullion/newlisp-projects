@@ -4,7 +4,7 @@
 ;; @author cormullion
 ;; @description  newLISP source code lexer/tokenizer/parser
 ;; @location somewhere on github
-;; @version 0.1 of 2011-09-19 08:55:19
+;; @version 0.2 of 2014-01-05 17:30:10 (bigint handling added)
 ;;<h4>About this module</h4>
 ;;<p>The Nlex module is a lexer/tokenizer/parser for newLISP source code.
 ;; An expert from StackOverflow xplains:
@@ -56,7 +56,7 @@
    (find c {123456789+-.0}))
 
 (define (char-numeric? c)
-   (find c {0123456789+-.xXabcdefABracketedCommandDEF}))
+   (find c {0123456789+-.xXabcdefABCDEFL}))
 
 (define (char-whitespace? c)
   (or (= c " ") (= c "\n") (= c "\t")))
@@ -102,27 +102,33 @@
   (let ((res '() number-as-string ""))
      (set 'number-as-string (join (read-number-scanner (list c))))
      (cond
-       ; try hex first
+       ; literal bignum, ending with "L"
+       ((ends-with number-as-string "L")
+                (set 'res  (list 'BigintLit (bigint number-as-string))))
+       ; implicit bignum, interpreted by newLISP as a bigint
+       ((> (abs (bigint number-as-string) 9223372036854775807))
+                (set 'res  (list 'Bigint (bigint number-as-string))))
+       ; try hex
        ((starts-with (lower-case number-as-string) "0x")
-          (set 'res  (list 'Hex number-as-string)))
+                (set 'res  (list 'Hex number-as-string)))
        ; scientific notation if there's an e
        ((find "e" (lower-case number-as-string))
-          (set 'res  (list 'Scientific (scientific-float number-as-string))))
+                (set 'res  (list 'Scientific (scientific-float number-as-string))))
        ; float?
        ((find "." number-as-string)
-          ; newLISP's float function isn't quite what we want here     
-          (set 'res  (list 'Float (precise-float number-as-string))))
+                ; newLISP's float function isn't quite what we want here     
+                (set 'res  (list 'Float (precise-float number-as-string))))
        ; octal, not hex or float? 017 is OK, 019 is read as 10
        ((and (starts-with (lower-case number-as-string) "0") 
              (> (length number-as-string) 1)
              (empty? (difference (explode number-as-string) (explode "01234567"))))
-          (set 'res (list 'Octal number-as-string)))
+                (set 'res (list 'Octal number-as-string)))
        ; perhaps an integer?  019 is read as 19 ...
        ((integer? (int number-as-string 0 10))
-         (set 'res  (list 'Integer (int number-as-string 0 10))))
+                (set 'res  (list 'Integer (int number-as-string 0 10))))
        ; give up
        (true
-         (set 'res (list 'NaN "NaN"))))
+                (set 'res (list 'Nan "NaN"))))
   (add-to-parse-tree res)))
 
 (define (read-quote)
@@ -273,19 +279,23 @@
            ((= token-type 'Quote); quote
                 (extend buff (string  "'")))
            ((= token-type 'Comment) ; comment
-                (extend buff (string (last element) "\n")))
+                (extend buff (string (last element) )))
            ((= token-type 'Integer) ; int
                 (extend buff (string (int (last element)))))
            ((= token-type 'Float) ; float
                 (extend buff (string (precise-float (last element)))))  
            ((= token-type 'Scientific) ; scientific notation
-                (extend buff (scientific-float (last element))))  
+                (extend buff (scientific-float (last element))))
+           ((= token-type 'BigintLit) ; these have "L" appended
+                (extend buff (string (bigint (last element)))))  
+           ((= token-type 'Bigint) ; these are implicit bignums
+                (extend buff (trim (string (bigint (last element))) "L")))  
            ((= token-type 'BracketedCommand) ; bracketed command
                (extend buff (string {[cmd]} (last element) {[/cmd]})))
            ((or 
                 (= token-type 'Symbol) ; close parenthesis
                 (= token-type 'Hex) ; hex
-                (= token-type 'NaN) ; not a number
+                (= token-type 'NaN) ; some generic number
                 (= token-type 'Octal) ; octal
                 )
                 (extend buff (string (last element))))
