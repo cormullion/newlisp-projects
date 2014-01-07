@@ -4,7 +4,7 @@
 ;; @author cormullion
 ;; @description  newLISP source code lexer/tokenizer/parser
 ;; @location somewhere on github
-;; @version 0.2 of 2014-01-05 17:30:10 (bigint handling added)
+;; @version 0.2 of 2014-01-07 11:19:45 bugs in bigint
 ;;<h4>About this module</h4>
 ;;<p>The Nlex module is a lexer/tokenizer/parser for newLISP source code.
 ;; An expert from StackOverflow xplains:
@@ -81,12 +81,10 @@
     (add-to-parse-tree (list 'Symbol res))))
 
 (define (read-number-scanner list-so-far)
-    (let ((next-char (peek-char)))
-      ;; if next-char is a digit then recurse
-      (if (and (char-numeric? next-char) next-char)
-          (read-number-scanner (cons (get-next-char) list-so-far))
-          (reverse list-so-far))))
-
+    (while (char-numeric? (peek-char))
+          (push (get-next-char) list-so-far -1))
+    list-so-far)
+          
 (define (precise-float str)
 ; more faithful to original format than newLISP's float?
   (let ((p "") (q ""))
@@ -122,7 +120,7 @@
              (empty? (difference (explode number-as-string) (explode "01234567"))))
                 (set 'res (list 'Octal number-as-string)))
        ; implicit bignum, interpreted by newLISP as a bigint
-       ((> (abs (bigint number-as-string) 9223372036854775807))
+       ((> (abs (bigint number-as-string)) 9223372036854775807)
                 (set 'res  (list 'Bigint (bigint number-as-string))))
        ; perhaps an integer?  019 is read as 19 ...
        ((integer? (int number-as-string 0 10))

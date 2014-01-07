@@ -42,13 +42,26 @@
 ; unicode
 (test {unicode }                    {{\unnnn} (utf8len "我能吞下玻璃而不伤身体。")} 'display)
 
-; try parsing some smallish files
+; try parsing smaller files
 (test {this parser script }         (read-file (string (env {HOME}) {/projects/programming/newlisp-projects/newlisp-parser.lsp})))
+
 ;(test {markdown } (read-file (string (env {HOME}) {/projects/programming/newlisp-projects/markdown.lsp})))
+
 ;(test {life } (read-file (string (env {HOME}) {/projects/programming/newlisp-projects/life.lsp})))
 
-; try parsing bigger files takes too long
-;(test {qa} (read-file (string (env {HOME}) {/projects/programming/newlisp-working/newlisp-10.3.2/qa-specific-tests/qa-bench})))
+; bigger files can take some time
+;(test {qa-bench} (read-file (string (env {HOME})
+    {/Downloads/newlisp-10.5.7/qa-specific-tests/qa-bench})))
+
+; test all qa files in newLISP distribution
+
+(map 
+    (fn (file)
+        (println { processing } file)
+        (if-not (catch (test {batch} (read-file (string (env {HOME}) {/Downloads/newlisp-10.5.7/qa-specific-tests/} file))) 'error)
+                (println " failed " file " " error)))
+    (directory 
+        (string (env {HOME}) {/Downloads/newlisp-10.5.7/qa-specific-tests/}) {qa*}))
 
 (println "\n" {all tests completed})
 
