@@ -4,7 +4,7 @@
 ;; @author cormullion
 ;; @description  newLISP source code lexer/tokenizer/parser
 ;; @location somewhere on github
-;; @version 0.2 of 2014-01-07 11:19:45 bugs in bigint
+;; @version 0.3 of 2015-04-01 08:43:13
 ;;<h4>About this module</h4>
 ;;<p>The Nlex module is a lexer/tokenizer/parser for newLISP source code.
 ;; An expert from StackOverflow xplains:
@@ -22,7 +22,7 @@
 
 (context 'Nlex)
 
-; class variables
+; context variables
 
 (define *cursor*)
 (define *source-length*)
@@ -44,7 +44,7 @@
  (let ((pch ""))
    (if (< *cursor* *source-length*)
        (set 'pch (*source-list* *cursor*))
-       (set 'pch nil))))
+       (set 'pch ""))))
 
 (define (char-identifier-first? c)
   (not (find (lower-case c) [text] #;"'(){}.0123456789[/text])))
@@ -53,10 +53,10 @@
   (not (find (lower-case c) { "':,()})))
 
 (define (char-numeric-first? c)
-   (find c {123456789+-.0}))
+  (find c {123456789+-.0}))
 
 (define (char-numeric? c)
-   (find c {0123456789+-.xXabcdefABCDEFL}))
+  (find c {0123456789+-.xXabcdefABCDEFL}))
 
 (define (char-whitespace? c)
   (or (= c " ") (= c "\n") (= c "\t")))
@@ -75,8 +75,8 @@
     
 (define (read-identifier c)
   (let ((res c) (ch ""))
-   ; look for end of identifier
-    (while (and (not (find (set 'ch (peek-char)) " \"',()\n\t\r")) (!= ch nil))
+    ; look for end of identifier
+    (while (and (not (find (set 'ch (peek-char)) " \"',()\n\t\r")) (!= ch ""))
       (push (get-next-char) res -1))
     (add-to-parse-tree (list 'Symbol res))))
 
@@ -86,14 +86,14 @@
     list-so-far)
           
 (define (precise-float str)
-; more faithful to original format than newLISP's float?
+  ; more faithful to original format than newLISP's float?
   (let ((p "") (q ""))
     (map set '(p q) (parse str "."))
     (append p "." q)))
     
 (define (scientific-float str)
   (let ((p "") (q ""))
-    (map set '(p q) (parse str "e"))
+    (map set '(p q) (parse str "e|E" 0)) ; upper-case E also accepted
     (append p "e" q)))
 
 (define (read-number c)
@@ -107,24 +107,34 @@
        ; try hex
        ((starts-with (lower-case number-as-string) "0x")
                 (set 'res  (list 'Hex number-as-string)))
+                
+       ; try binary
+       ((starts-with (lower-case number-as-string) "0b")
+                (set 'res  (list 'Binary number-as-string)))
+                
        ; scientific notation if there's an e
        ((find "e" (lower-case number-as-string))
                 (set 'res  (list 'Scientific (scientific-float number-as-string))))
+
        ; float?
        ((find "." number-as-string)
                 ; newLISP's float function isn't quite what we want here     
                 (set 'res  (list 'Float (precise-float number-as-string))))
-       ; octal, not hex or float? 017 is OK, 019 is read as 10
+
+       ; octal, not hex binary or float? 017 is OK, 019 is read as 10
        ((and (starts-with (lower-case number-as-string) "0") 
              (> (length number-as-string) 1)
              (empty? (difference (explode number-as-string) (explode "01234567"))))
                 (set 'res (list 'Octal number-as-string)))
+
        ; implicit bignum, interpreted by newLISP as a bigint
        ((> (abs (bigint number-as-string)) 9223372036854775807)
                 (set 'res  (list 'Bigint (bigint number-as-string))))
+
        ; perhaps an integer?  019 is read as 19 ...
        ((integer? (int number-as-string 0 10))
                 (set 'res  (list 'Integer (int number-as-string 0 10))))
+
        ; give up
        (true
                 (set 'res (list 'Nan "NaN"))))
@@ -145,7 +155,7 @@
 
 (define (read-braced-string)
   (let ((res "") (ch {}) (level 1)) 
-  ; we've already seen the first { so we're up to level 1
+     ; we've already seen the first { so we're up to level 1
      (while (> level 0)
          (set 'ch (get-next-char))
          (if (= ch "{") (inc level))
@@ -294,6 +304,7 @@
            ((or 
                 (= token-type 'Symbol) ; close parenthesis
                 (= token-type 'Hex) ; hex
+                (= token-type 'Binary) ; binary
                 (= token-type 'NaN) ; some generic number
                 (= token-type 'Octal) ; octal
                 )

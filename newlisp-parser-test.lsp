@@ -50,18 +50,17 @@
 ;(test {life } (read-file (string (env {HOME}) {/projects/programming/newlisp-projects/life.lsp})))
 
 ; bigger files can take some time
-;(test {qa-bench} (read-file (string (env {HOME})
-    {/Downloads/newlisp-10.5.7/qa-specific-tests/qa-bench})))
+;(test {qa-bench} (read-file (string (env {HOME}) {/Downloads/newlisp-10.5.7/qa-specific-tests/qa-bench})))
 
 ; test all qa files in newLISP distribution
 
 (map 
     (fn (file)
         (println { processing } file)
-        (if-not (catch (test {batch} (read-file (string (env {HOME}) {/Downloads/newlisp-10.5.7/qa-specific-tests/} file))) 'error)
+        (if-not (catch (test {batch} (read-file (string (env {HOME}) {/projects/programming/lisp/newlisp-10.6.2/qa-specific-tests/} file))) 'error)
                 (println " failed " file " " error)))
     (directory 
-        (string (env {HOME}) {/Downloads/newlisp-10.5.7/qa-specific-tests/}) {qa*}))
+        (string (env {HOME}) {/projects/programming/lisp/newlisp-10.6.2/qa-specific-tests/}) {qa*}))
 
 (println "\n" {all tests completed})
 
